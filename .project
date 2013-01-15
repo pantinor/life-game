@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>life-game</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+		<buildCommand>
+			<name>org.eclipse.m2e.core.maven2Builder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+		<nature>org.eclipse.m2e.core.maven2Nature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>slick-ae-src</name>
+			<type>2</type>
+			<location>C:/eclipse_workspace/kevglass-slick-f869338443b3/trunk/Slick-AE/src</location>
+		</link>
+		<link>
+			<name>slick-src</name>
+			<type>2</type>
+			<location>C:/eclipse_workspace/kevglass-slick-f869338443b3/trunk/Slick/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>
