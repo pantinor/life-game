@@ -35,7 +35,7 @@ public class LifeGame extends TWLStateBasedGame {
 	
 	@Override
 	protected URL getThemeURL() {
-		return ResourceLoader.getResource("chutzpah.xml");
+		return ResourceLoader.getResource("gui.xml");
 	}
 
 

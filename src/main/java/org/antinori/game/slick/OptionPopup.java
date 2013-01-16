@@ -146,7 +146,7 @@ public class OptionPopup {
 		popupWindow.setSize(450,300);
 		layout.setSize(450,300);
 
-        popupWindow.setTheme("grey-panel");
+        popupWindow.setTheme("black-panel");
         popupWindow.add(layout);
         popupWindow.openPopupCentered();
         

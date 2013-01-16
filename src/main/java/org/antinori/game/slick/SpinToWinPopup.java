@@ -180,7 +180,7 @@ public class SpinToWinPopup {
 		popupWindow.setSize(410,330);
 		layout.setSize(410,330);
 
-        popupWindow.setTheme("grey-panel");
+        popupWindow.setTheme("black-panel");
         popupWindow.add(layout);
         popupWindow.openPopupCentered();
         

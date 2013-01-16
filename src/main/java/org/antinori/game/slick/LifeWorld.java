@@ -4,8 +4,12 @@ import java.awt.Font;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import org.antinori.game.GameInterface;
 import org.antinori.game.Player;
 import org.antinori.game.Tile;
+import org.antinori.game.cards.ShareTheWealthCard;
+import org.antinori.game.cards.Card;
+
 import org.antinori.game.twl.RootPane;
 import org.apache.commons.lang3.text.WordUtils;
 import org.newdawn.slick.Color;
@@ -62,6 +66,17 @@ public class LifeWorld extends World {
 	public int selectedOption = -1;
 	
 	public boolean gameOver = false;
+	
+	public static SpriteSheet people_sheet1;
+	public static SpriteSheet people_sheet2;
+	public static SpriteSheet people_sheet3;
+	public static SpriteSheet people_sheet4;
+	public static SpriteSheet people_sheet5;
+	public static SpriteSheet people_sheet6;
+	public static SpriteSheet people_sheet7;
+
+	public static SpriteSheet homes_sheet;
+	public static SpriteSheet careers_sheet;
 
 
 	public LifeWorld(int id, GameContainer container) {
@@ -100,54 +115,64 @@ public class LifeWorld extends World {
 		
 		wheel = new Image("mywheel.png");
 		
+		people_sheet1 = new SpriteSheet("girl-walking.png", 96, 96);
+		people_sheet2 = new SpriteSheet("arno-walking.png", 96, 96);
+		people_sheet3 = new SpriteSheet("builder-walking.png", 96, 96);
+		people_sheet4 = new SpriteSheet("lady-walking.png", 96, 96);
+		people_sheet5 = new SpriteSheet("santa-walking.png", 96, 96);
+		people_sheet6 = new SpriteSheet("doctor-walking.png", 96, 96);
+		people_sheet7 = new SpriteSheet("pirate-walking.png", 96, 96);
+
+		homes_sheet = new SpriteSheet("homes.png", 96, 96);
+		careers_sheet = new SpriteSheet("careers.png", 96, 96);
+
+	}
+	
+	
+
+
+	@Override
+	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
+		super.enter(container, game);
+		
 		nsg = new NewSlickGame(LifeWorld.this);
 		nsg.createDecks();
-
-		try {
-			
-		
-			Actor player1 = new Actor(ActorType.Type.PLAYER3,13,7);
-			Actor player2 = new Actor(ActorType.Type.PLAYER1,14,7);
-			Actor player3 = new Actor(ActorType.Type.PLAYER5,15,7);
-			//Actor player4 = new Actor(ActorType.Type.PLAYER4,16,7);
-			//Actor player5 = new Actor(ActorType.Type.PLAYER5,17,7);
-			//Actor player6 = new Actor(ActorType.Type.PLAYER6,18,7);
-
-			
-			actors.add(player1);
-			actors.add(player2);
-			actors.add(player3);
-			//actors.add(player4);
-			//actors.add(player5);
-			//actors.add(player6);
-
-						
-			nsg.addPlayer("Paul", player1, java.awt.Color.blue, false);
-			nsg.addPlayer("Jessika",player2, java.awt.Color.pink, true);
-			nsg.addPlayer("Brandon", player3, java.awt.Color.green, true);
-			//nsg.addPlayer("Maria", player4, java.awt.Color.green, true);
-			//nsg.addPlayer("John", player5, java.awt.Color.green, true);
-			//nsg.addPlayer("Bob", player6, java.awt.Color.green, true);
-
-			//nsg.setDebugStartPositions(map.nodes[1][3]);
-			
-			
-			add(player1, World.GAME);
-			add(player2, World.GAME);
-			add(player3, World.GAME);
-			//add(player4, World.GAME);
-			//add(player5, World.GAME);
-			//add(player6, World.GAME);
-		
-
-		} catch(Exception e) {
-			e.printStackTrace();
-		}
 
 				
 		Thread thread = new Thread("Game Loop Thread") {
 			public void run() {
 				try {
+					
+					
+					PlayerSelectionPopup popup = new PlayerSelectionPopup();
+					popup.showDialog(getRootPane());
+					
+					int index = 13;
+					
+					Actor me = new Actor(ActorType.Type.PLAYER3,index,7);
+					actors.add(me);
+					nsg.addPlayer(popup.playerName, me, java.awt.Color.blue, false);
+					add(me, World.GAME);
+				
+					
+					ActorType.Type type = ActorType.Type.PLAYER1;
+					for (String name : popup.selection) {
+						index++;
+						if (name.equals("Ruby")) type = ActorType.Type.PLAYER1;
+						if (name.equals("Rosa")) type = ActorType.Type.PLAYER7;
+						if (name.equals("Jessika")) type = ActorType.Type.PLAYER4;
+						if (name.equals("Brandon")) type = ActorType.Type.PLAYER5;
+						if (name.equals("Ada")) type = ActorType.Type.PLAYER6;
+
+						Actor actor = new Actor(type,index,7);
+						actors.add(actor);
+						nsg.addPlayer(name, actor, java.awt.Color.blue, true);
+						add(actor, World.GAME);
+						
+					}
+					
+					//nsg.setDebugStartPositions(map.nodes[1][3]);
+
 					
 					currentPlayer = nsg.initPlayers();
 
@@ -176,15 +201,6 @@ public class LifeWorld extends World {
 		};
 		thread.start();
 
-
-	}
-	
-	
-
-
-	@Override
-	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
-		super.enter(container, game);
 	}
 	
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {

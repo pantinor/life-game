@@ -9,7 +9,7 @@ import org.newdawn.slick.SpriteSheet;
 
 public class ActorType {
 	
-	public enum Type {PLAYER1,PLAYER2,PLAYER3,PLAYER4,PLAYER5,PLAYER6};
+	public enum Type {PLAYER1,PLAYER2,PLAYER3,PLAYER4,PLAYER5,PLAYER6,PLAYER7};
 		
 	private Animation east;
 	private Animation west;
@@ -28,19 +28,18 @@ public class ActorType {
 	
 	public ActorType(Type type) throws SlickException {
 		
-		SpriteSheet people_sheet1 = new SpriteSheet("girl-walking.png", 96, 96);
-		SpriteSheet people_sheet2 = new SpriteSheet("arno-walking.png", 96, 96);
-		SpriteSheet people_sheet3 = new SpriteSheet("builder-walking.png", 96, 96);
-		SpriteSheet people_sheet4 = new SpriteSheet("lady-walking.png", 96, 96);
-		SpriteSheet people_sheet5 = new SpriteSheet("santa-walking.png", 96, 96);
-		SpriteSheet people_sheet6 = new SpriteSheet("doctor-walking.png", 96, 96);
-		
-		homes_sheet = new SpriteSheet("homes.png", 96, 96);
-		careers_sheet = new SpriteSheet("careers.png", 96, 96);
-		
+		SpriteSheet people_sheet1 = LifeWorld.people_sheet1;
+		SpriteSheet people_sheet2 = LifeWorld.people_sheet2;
+		SpriteSheet people_sheet3 = LifeWorld.people_sheet3;
+		SpriteSheet people_sheet4 = LifeWorld.people_sheet4;
+		SpriteSheet people_sheet5 = LifeWorld.people_sheet5;
+		SpriteSheet people_sheet6 = LifeWorld.people_sheet6;
+		SpriteSheet people_sheet7 = LifeWorld.people_sheet7;
+
+		homes_sheet = LifeWorld.homes_sheet;
+		careers_sheet = LifeWorld.careers_sheet;
+
 		//SpriteSheet map_sprites = new SpriteSheet("./96x96-sprites.png", 96, 96);
-
-
 
 		this.east = new Animation();
 		this.west = new Animation();
@@ -144,7 +143,17 @@ public class ActorType {
 			for (int i=0;i<8;i++) west.addFrame(people_sheet6.getSprite(7, i), DURATION);
 			break;
 		}
-
+		case PLAYER7: {
+			for (int i=0;i<8;i++) east.addFrame(people_sheet7.getSprite(0, i), DURATION);
+			for (int i=0;i<8;i++) north.addFrame(people_sheet7.getSprite(1, i), DURATION);
+			for (int i=0;i<8;i++) northeast.addFrame(people_sheet7.getSprite(2, i), DURATION);
+			for (int i=0;i<8;i++) northwest.addFrame(people_sheet7.getSprite(3, i), DURATION);
+			for (int i=0;i<8;i++) south.addFrame(people_sheet7.getSprite(4, i), DURATION);
+			for (int i=0;i<8;i++) southeast.addFrame(people_sheet7.getSprite(5, i), DURATION);
+			for (int i=0;i<8;i++) southwest.addFrame(people_sheet7.getSprite(6, i), DURATION);
+			for (int i=0;i<8;i++) west.addFrame(people_sheet7.getSprite(7, i), DURATION);
+			break;
+		}
 		}
 		
 		
