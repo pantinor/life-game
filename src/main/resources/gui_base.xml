@@ -1030,8 +1030,38 @@
                 <alias ref="-evilinnerframe.background"/>
             </select>
             
+           <composed name="itemslot.background" border="5" sizeOverwriteH="40" sizeOverwriteV="40">
+            <alias ref="-evilinnerframe.background"/>
+            <alias ref="white" if="armed" tint="#80FFFFAA"/>
+            <alias ref="white" if="pressed" tint="#80FFAADD"/>
+            <alias ref="white" if="selected" tint="#80ff8c00"/>
+        </composed>
+            
     </images>
 
+   <images file="pirate-walking.png">
+        <area name="icon.pirate" xywh="0,0,96,96" center="true"/>
+    </images>   
+       <images file="santa-walking.png">
+        <area name="icon.santa" xywh="0,0,96,96" center="true"/>
+    </images>   
+       <images file="arno-walking.png">
+        <area name="icon.arno" xywh="0,0,96,96" center="true"/>
+    </images>   
+       <images file="lady-walking.png">
+        <area name="icon.lady" xywh="0,0,96,96" center="true"/>
+    </images>   
+       <images file="girl-walking.png">
+        <area name="icon.girl" xywh="0,0,96,96" center="true"/>
+    </images>   
+       <images file="builder-walking.png">
+        <area name="icon.builder" xywh="0,0,96,96" center="true"/>
+    </images>   
+       <images file="doctor-walking.png">
+        <area name="icon.doctor" xywh="0,0,96,96" center="true"/>
+    </images>   
+        
+        
     <fontDef name="button-font" filename="font.fnt" color="white">
         <fontParam if="disabled" color="#ccc"/>
         <fontParam if="selected" color="black"/>
@@ -1624,22 +1654,38 @@
         <theme name="label" ref="label"/>
     </theme>
     
+    <theme name="playerselectpanel" ref="-defaults" allowWildcard="true">
+        <param name="slotSpacing"><int>5</int></param>
+    </theme>
+    
+    <theme name="itemslot" ref="-defaults" allowWildcard="true">
+        <param name="background"><image>itemslot.background</image></param>
+        <param name="border"><border>background.border</border></param>
+        <param name="icons"><map>
+            <param name=""><image>icon.*</image></param>
+        </map></param>
+    </theme>
+    
         <theme name="black-panel" ref="-defaults">
-        
-                            <param name="background"><image>evilframe.background</image></param>
-	                    <param name="border"><border>background.border</border></param>
+            <param name="background"><image>evilframe.background</image></param>
+	        <param name="border"><border>background.border</border></param>
 	        <param name="defaultGap"><dimension>5,5</dimension></param>
 	        <param name="smallGap"><dimension>8,8</dimension></param>
 	        <param name="mediumGap"><dimension>10,10</dimension></param>
-        <param name="largeGap"><dimension>15,15</dimension></param>
+            <param name="largeGap"><dimension>15,15</dimension></param>
         
-           <theme name="dialoglayout" ref="dialoglayout">
-	         <theme name="label" ref="label"/>
-	         <theme name="button" ref="button"/>
-	         <theme name="combobox" ref="combobox"/>
-	         <theme name="checkbox" ref="checkbox"/>
-	         <theme name="editfield" ref="editfield"/>
-    	</theme>
+	        <theme name="dialoglayout" ref="dialoglayout">
+		         <theme name="label" ref="label"/>
+		         <theme name="button" ref="button"/>
+		         <theme name="combobox" ref="combobox"/>
+		         <theme name="checkbox" ref="checkbox"/>
+		         <theme name="editfield" ref="editfield"/>
+		         <theme name="radiobutton" ref="radiobutton"/>
+		         <theme name="itemslot" ref="itemslot"/>
+		         <theme name="playerselectpanel" ref="playerselectpanel">
+		         	<theme name="itemslot" ref="itemslot"/>
+		         </theme>
+	    	</theme>
     </theme>
     
     

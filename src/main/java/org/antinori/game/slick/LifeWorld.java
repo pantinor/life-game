@@ -147,28 +147,19 @@ public class LifeWorld extends World {
 					PlayerSelectionPopup popup = new PlayerSelectionPopup();
 					popup.showDialog(getRootPane());
 					
-					int index = 13;
+					int index = 13;//where the actors first start out
 					
-					Actor me = new Actor(ActorType.Type.PLAYER3,index,7);
+					Actor me = new Actor(popup.selected_icon,index,7);
 					actors.add(me);
 					nsg.addPlayer(popup.playerName, me, java.awt.Color.blue, false);
 					add(me, World.GAME);
 				
 					
-					ActorType.Type type = ActorType.Type.PLAYER1;
-					for (String name : popup.selection) {
-						index++;
-						if (name.equals("Ruby")) type = ActorType.Type.PLAYER1;
-						if (name.equals("Rosa")) type = ActorType.Type.PLAYER7;
-						if (name.equals("Jessika")) type = ActorType.Type.PLAYER4;
-						if (name.equals("Brandon")) type = ActorType.Type.PLAYER5;
-						if (name.equals("Ada")) type = ActorType.Type.PLAYER6;
-
-						Actor actor = new Actor(type,index,7);
+					for (String name : popup.selection.keySet()) {
+						Actor actor = new Actor(popup.selection.get(name),++index,7);
 						actors.add(actor);
 						nsg.addPlayer(name, actor, java.awt.Color.blue, true);
 						add(actor, World.GAME);
-						
 					}
 					
 					//nsg.setDebugStartPositions(map.nodes[1][3]);
