@@ -62,6 +62,7 @@ public class PlayerSelectPanel extends Widget {
         		if (icon_names[i].equals("santa")) type = ActorType.Type.PLAYER5;
         		if (icon_names[i].equals("doctor")) type = ActorType.Type.PLAYER6;
         		if (icon_names[i].equals("pirate")) type = ActorType.Type.PLAYER7;
+        		if (icon_names[i].equals("boy")) type = ActorType.Type.PLAYER8;
         	}
         }
         return type;
@@ -76,6 +77,7 @@ public class PlayerSelectPanel extends Widget {
 		if (name.equals("santa")) type = ActorType.Type.PLAYER5;
 		if (name.equals("doctor")) type = ActorType.Type.PLAYER6;
 		if (name.equals("pirate")) type = ActorType.Type.PLAYER7;
+		if (name.equals("boy")) type = ActorType.Type.PLAYER8;
         return type;
     }
     

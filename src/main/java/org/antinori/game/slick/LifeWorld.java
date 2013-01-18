@@ -61,10 +61,7 @@ public class LifeWorld extends World {
 	private String dismissalMessageDisplayed = null;
 	private String messageDisplayed = null;
 	
-	public String optionMessageDisplayed = null;
-	public String[] options = null;
-	public int selectedOption = -1;
-	
+	public boolean gameStarted = false;
 	public boolean gameOver = false;
 	
 	public static SpriteSheet people_sheet1;
@@ -74,6 +71,7 @@ public class LifeWorld extends World {
 	public static SpriteSheet people_sheet5;
 	public static SpriteSheet people_sheet6;
 	public static SpriteSheet people_sheet7;
+	public static SpriteSheet people_sheet8;
 
 	public static SpriteSheet homes_sheet;
 	public static SpriteSheet careers_sheet;
@@ -122,6 +120,8 @@ public class LifeWorld extends World {
 		people_sheet5 = new SpriteSheet("santa-walking.png", 96, 96);
 		people_sheet6 = new SpriteSheet("doctor-walking.png", 96, 96);
 		people_sheet7 = new SpriteSheet("pirate-walking.png", 96, 96);
+		people_sheet8 = new SpriteSheet("boy-walking.png", 96, 96);
+
 
 		homes_sheet = new SpriteSheet("homes.png", 96, 96);
 		careers_sheet = new SpriteSheet("careers.png", 96, 96);
@@ -167,6 +167,7 @@ public class LifeWorld extends World {
 					
 					currentPlayer = nsg.initPlayers();
 
+					gameStarted = true;
 					nsg.startGame();
 					
 					//int seed = LifeMain.dice.roll();
@@ -288,11 +289,7 @@ public class LifeWorld extends World {
 			showMessage(container, g, messageDisplayed);
 		}
 		
-		if (optionMessageDisplayed != null) {
-			optionDialog(container, g, optionMessageDisplayed, options);
-		}
-		
-		drawPlayerPanel(container, game, g);
+		if (gameStarted) drawPlayerPanel(container, game, g);
 		
 		
 		if (spinWheel) {
@@ -446,46 +443,6 @@ public class LifeWorld extends World {
 		g.setColor(Color.white);
 		g.drawString(text, x + 20, y + 10);
 		
-	}
-	
-	public void optionDialog(GameContainer container, Graphics g, String text, String[] options) {
-		int x = container.getWidth()/2 - 300;
-		int y = container.getHeight()/2 - 100;
-		
-		RoundedRectangle r = new RoundedRectangle(
-				x,
-				y,
-				container.getWidth()/2 - 200, 
-				100*options.length, 
-				10);
-		
-		Color c = Color.blue.darker();
-		//c.a = 0.6f;
-		g.setColor(c);
-		g.fill(r);
-		g.draw(r);
-		
-		g.setColor(Color.white);
-		g.drawString(text, x + 20, y + 10);
-				
-		int startY = y + 50;
-		
-		synchronized(selectables) {
-			for (int i=0;i<options.length;i++) {
-				if (selectables.containsKey("SelectableOption"+i)) continue;
-				SelectableOption option = new SelectableOption(x+20+20,startY+25*i,font_16,options[i],i,Color.lightGray,true);
-				option.setWorld(this);
-				selectables.put("SelectableOption"+i,option);
-			}
-			
-			for (SelectableOption option : selectables.values()) {
-				try {
-					option.render(container, g);
-				} catch(Exception e) {
-				}	
-			}
-		}
-				
 	}
 
 	

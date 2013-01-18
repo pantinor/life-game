@@ -1032,35 +1032,38 @@
             
            <composed name="itemslot.background" border="5" sizeOverwriteH="40" sizeOverwriteV="40">
             <alias ref="-evilinnerframe.background"/>
+            <alias ref="white" if="hover" tint="#80FFFFFF"/>
             <alias ref="white" if="armed" tint="#80FFFFAA"/>
             <alias ref="white" if="pressed" tint="#80FFAADD"/>
-            <alias ref="white" if="selected" tint="#80ff8c00"/>
+            <alias ref="white" if="selected" tint="#5fc148"/>
         </composed>
             
     </images>
 
    <images file="pirate-walking.png">
-        <area name="icon.pirate" xywh="0,0,96,96" center="true"/>
+        <area name="icon.pirate" xywh="394,0,96,96" center="true"/>
     </images>   
        <images file="santa-walking.png">
-        <area name="icon.santa" xywh="0,0,96,96" center="true"/>
+        <area name="icon.santa" xywh="394,0,96,96" center="true"/>
     </images>   
        <images file="arno-walking.png">
-        <area name="icon.arno" xywh="0,0,96,96" center="true"/>
+        <area name="icon.arno" xywh="394,0,96,96" center="true"/>
     </images>   
        <images file="lady-walking.png">
-        <area name="icon.lady" xywh="0,0,96,96" center="true"/>
+        <area name="icon.lady" xywh="394,0,96,96" center="true"/>
     </images>   
        <images file="girl-walking.png">
-        <area name="icon.girl" xywh="0,0,96,96" center="true"/>
+        <area name="icon.girl" xywh="394,0,96,96" center="true"/>
     </images>   
        <images file="builder-walking.png">
-        <area name="icon.builder" xywh="0,0,96,96" center="true"/>
+        <area name="icon.builder" xywh="394,0,96,96" center="true"/>
     </images>   
        <images file="doctor-walking.png">
-        <area name="icon.doctor" xywh="0,0,96,96" center="true"/>
+        <area name="icon.doctor" xywh="394,0,96,96" center="true"/>
     </images>   
-        
+       <images file="boy-walking.png">
+        <area name="icon.boy" xywh="394,0,96,96" center="true"/>
+    </images>           
         
     <fontDef name="button-font" filename="font.fnt" color="white">
         <fontParam if="disabled" color="#ccc"/>
@@ -1685,7 +1688,7 @@
 		         <theme name="playerselectpanel" ref="playerselectpanel">
 		         	<theme name="itemslot" ref="itemslot"/>
 		         </theme>
-	    	</theme>
+	    	</theme>	        
     </theme>
     
     

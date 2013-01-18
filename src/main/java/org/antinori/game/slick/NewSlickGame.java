@@ -539,22 +539,9 @@ public class NewSlickGame implements GameInterface {
 	}
 	
 	public int optionDialog(String text, String[] options) {
-		this.world.optionMessageDisplayed = text;
-		this.world.options = options;
-		this.world.selectedOption = -1;
-		try {
-			while(this.world.selectedOption == -1) {
-				Thread.sleep(500);
-			}
-		} catch(Exception e) {
-		}
-		this.world.optionMessageDisplayed = null;
-		synchronized(this.world.selectables) {
-			this.world.selectables.clear();
-		}
-
-		System.out.println("selected = " + this.world.selectedOption);
-		return this.world.selectedOption;
+		OptionPopup popup = new OptionPopup(options, text, false);
+		popup.showDialog(this.world.getRootPane());
+		return popup.selection;
 	}
 	
 	public int spinWheel(Player player, boolean check_lti) {

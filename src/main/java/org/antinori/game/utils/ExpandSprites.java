@@ -13,7 +13,7 @@ import org.antinori.game.LifeMain;
 
 public class ExpandSprites {
 	
-	public static String dir = "C:\\Users\\Paul\\Desktop\\builder bitmaps\\";
+	public static String dir = "C:\\Users\\Paul\\Desktop\\boy red pants bitmaps\\";
 	
 	private static void expand(String in, String out) throws IOException {
 		

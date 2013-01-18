@@ -47,7 +47,7 @@ public class LifeGame extends TWLStateBasedGame {
 						
 			AppGameContainer container = new AppGameContainer(new LifeGame("Life"), 640, 480, false);
 			container.setDisplayMode(container.getScreenWidth(), container.getScreenHeight(), false);
-			container.setShowFPS(false);
+			container.setShowFPS(true);
 			container.start();
 			
 		} catch (Exception e) {

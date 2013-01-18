@@ -288,13 +288,13 @@ public class SpinToWinPopup {
 		if (useSTW2CheckBox.isActive() && count > 2) {
 			SimpleDialog dialog = new SimpleDialog();
 			dialog.setMessage("Only 2 numbers can be selected.");
-			dialog.setTheme("grey-panel");
+			dialog.setTheme("simpledialog");
 			dialog.showDialog(owner);
 			return;
 		}
 		if (useSTW4CheckBox.isActive() && count > 4) {
 			SimpleDialog dialog = new SimpleDialog();
-			dialog.setTheme("grey-panel");
+			dialog.setTheme("simpledialog");
 			dialog.setMessage("Only 4 numbers can be selected.");
 			dialog.showDialog(owner);
 			return;

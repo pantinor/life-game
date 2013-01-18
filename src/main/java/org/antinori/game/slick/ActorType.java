@@ -9,7 +9,7 @@ import org.newdawn.slick.SpriteSheet;
 
 public class ActorType {
 	
-	public enum Type {PLAYER1,PLAYER2,PLAYER3,PLAYER4,PLAYER5,PLAYER6,PLAYER7};
+	public enum Type {PLAYER1,PLAYER2,PLAYER3,PLAYER4,PLAYER5,PLAYER6,PLAYER7,PLAYER8};
 		
 	private Animation east;
 	private Animation west;
@@ -35,6 +35,8 @@ public class ActorType {
 		SpriteSheet people_sheet5 = LifeWorld.people_sheet5;
 		SpriteSheet people_sheet6 = LifeWorld.people_sheet6;
 		SpriteSheet people_sheet7 = LifeWorld.people_sheet7;
+		SpriteSheet people_sheet8 = LifeWorld.people_sheet8;
+
 
 		homes_sheet = LifeWorld.homes_sheet;
 		careers_sheet = LifeWorld.careers_sheet;
@@ -152,6 +154,17 @@ public class ActorType {
 			for (int i=0;i<8;i++) southeast.addFrame(people_sheet7.getSprite(5, i), DURATION);
 			for (int i=0;i<8;i++) southwest.addFrame(people_sheet7.getSprite(6, i), DURATION);
 			for (int i=0;i<8;i++) west.addFrame(people_sheet7.getSprite(7, i), DURATION);
+			break;
+		}
+		case PLAYER8: {
+			for (int i=0;i<8;i++) east.addFrame(people_sheet8.getSprite(0, i), DURATION);
+			for (int i=0;i<8;i++) north.addFrame(people_sheet8.getSprite(1, i), DURATION);
+			for (int i=0;i<8;i++) northeast.addFrame(people_sheet8.getSprite(2, i), DURATION);
+			for (int i=0;i<8;i++) northwest.addFrame(people_sheet8.getSprite(3, i), DURATION);
+			for (int i=0;i<8;i++) south.addFrame(people_sheet8.getSprite(4, i), DURATION);
+			for (int i=0;i<8;i++) southeast.addFrame(people_sheet8.getSprite(5, i), DURATION);
+			for (int i=0;i<8;i++) southwest.addFrame(people_sheet8.getSprite(6, i), DURATION);
+			for (int i=0;i<8;i++) west.addFrame(people_sheet8.getSprite(7, i), DURATION);
 			break;
 		}
 		}

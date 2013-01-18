@@ -56,7 +56,7 @@ public class SelectableOption extends TextEntity {
 
 		if (enableClick && renderBorder && input.isMouseButtonDown(Input.MOUSE_LEFT_BUTTON)) {
 			LifeWorld w = (LifeWorld)this.world;
-			w.selectedOption = this.index;
+			//w.selectedOption = this.index;
 		}
 
 	}

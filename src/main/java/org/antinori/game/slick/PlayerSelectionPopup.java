@@ -45,6 +45,8 @@ public class PlayerSelectionPopup {
             throw new NullPointerException("no owner");
         }
         
+        this.owner = owner;
+        
         popupWindow = new PopupWindow(owner);
 
 		layout = new DialogLayout();
@@ -59,7 +61,7 @@ public class PlayerSelectionPopup {
         jButton1.setText("Start Game");
         jTextField1.setText("Joe");
         
-    	String[] names = {"arno","builder","girl","lady","pirate","doctor","santa"};
+    	String[] names = {"arno","builder","girl","lady","pirate","doctor","santa","boy"};
         playerSelectTable = new PlayerSelectPanel(4,2,names,false,null);
 
     	String[] others = {"builder","girl","lady","pirate","doctor"};
@@ -93,7 +95,7 @@ public class PlayerSelectionPopup {
 	                                   .addGroup(layout.createParallelGroup()
 	                                       .addWidget(jLabel1)
 	                                       .addWidget(jTextField1))
-	                                   .addGap(30,30,30)))
+	                                   .addGap()))
 	                           .addGap())))
 	           );
 	           
@@ -150,12 +152,12 @@ public class PlayerSelectionPopup {
 		if (selection.size() < 1) {
 			SimpleDialog dialog = new SimpleDialog();
 			dialog.setMessage("You must select at least one other player.");
-			dialog.setTheme("black-panel");
+			dialog.setTheme("simpledialog");
 			dialog.showDialog(owner);
 		} else	if (jTextField1.getText().length() < 1) {
 			SimpleDialog dialog = new SimpleDialog();
 			dialog.setMessage("Please enter your name.");
-			dialog.setTheme("black-panel");
+			dialog.setTheme("simpledialog");
 			dialog.showDialog(owner);
 		} else {
 			playerName = jTextField1.getText();
