@@ -126,6 +126,9 @@ public class SpinToWinPopup {
 		useSTW2CheckBox.setTheme("checkbox");
 		useSTW4CheckBox.setTheme("checkbox");
 		
+		if (!player.hasSPIN2Card()) useSTW2CheckBox.setEnabled(false);
+		if (!player.hasSPIN4Card()) useSTW4CheckBox.setEnabled(false);
+		
 		useSTW2CheckBox.addCallback(new Runnable() {
 			public void run() {
 				useSTW2CheckBoxItemStateChanged(useSTW2CheckBox.isActive());

@@ -166,20 +166,25 @@ public class LifeWorld extends World {
 
 					
 					currentPlayer = nsg.initPlayers();
+					
+					
 
 					gameStarted = true;
 					nsg.startGame();
+					
+					//YesNoPopup yn = new YesNoPopup("Whatever you want to say here?");
+					//yn.showDialog(getRootPane());
 					
 					//int seed = LifeMain.dice.roll();
 					//int roll = spinWheel(seed);
 					//nsg.messageDialog("you spinned a " + roll);
 										
-//					currentPlayer.getPlayer().addCard(new ShareTheWealthCard(Card.Type.SPIN2));
-//					currentPlayer.getPlayer().addCard(new ShareTheWealthCard(Card.Type.SPIN4));
-//					
-//					GameInterface gi = (GameInterface)nsg;
-//					SpinToWinPopup popup = new SpinToWinPopup(currentPlayer.getPlayer(), gi);
-//					popup.showDialog(getRootPane());
+					//currentPlayer.getPlayer().addCard(new ShareTheWealthCard(Card.Type.SPIN2));
+					//currentPlayer.getPlayer().addCard(new ShareTheWealthCard(Card.Type.SPIN4));
+					
+					//GameInterface gi = (GameInterface)nsg;
+					//SpinToWinPopup stw = new SpinToWinPopup(currentPlayer.getPlayer(), gi);
+					//stw.showDialog(getRootPane());
 					
 //					String[] options = new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10" };
 //					OptionPopup popup = new OptionPopup(options,"Whatever you want to say here?", true);

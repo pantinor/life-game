@@ -12,8 +12,6 @@ import org.newdawn.slick.state.StateBasedGame;
 
 public class EndGameWorld extends World {
 
-	public static boolean gotoGame = false;
-
 	public EndGameWorld(int id) {
 		super(id);
 	}
@@ -21,14 +19,11 @@ public class EndGameWorld extends World {
 	@Override
 	public void init(GameContainer container, StateBasedGame game) throws SlickException {
 		super.init(container, game);
-		//add(new Background(0, 0, ResourceManager.getImage("menu")));
-		//add(new FuzzySpaceEntity(180, 400, showContinue));
 	}
 
 	@Override
 	public void enter(GameContainer container, StateBasedGame game) throws SlickException {
 		super.enter(container, game);
-		gotoGame = false;
 	}
 
 	@Override
@@ -41,9 +36,6 @@ public class EndGameWorld extends World {
 	@Override
 	public void update(GameContainer container, StateBasedGame game, int delta) throws SlickException {
 		super.update(container, game, delta);
-		if (gotoGame) {
-			//game.enterState(FuzzyMain.SELECT_STATE, new FadeOutTransition(), new FadeInTransition());
-		}
 	}
 	
 	

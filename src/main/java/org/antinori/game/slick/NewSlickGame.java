@@ -406,8 +406,7 @@ public class NewSlickGame implements GameInterface {
 							if (p == currentPlayer) continue;
 							boolean choice = false;
 							if (p.hasPayYouCard()) {
-								String[] options = {"Yes","No"};
-								choice = choosePath(player,player.getPlayerName() + ", do you want to use your COLLECT card to collect half of $"+amount+"?",options);
+								choice = yesNoChoice(player,player.getPlayerName() + ", do you want to use your COLLECT card to collect half of $"+amount+"?");
 							} else {
 								continue;
 							}
@@ -580,6 +579,18 @@ public class NewSlickGame implements GameInterface {
 		return choice;
 	}
 	
+	public boolean yesNoChoice(Player player, String text) {
+		boolean choice = false;
+		if (!player.isComputerPlayer()) {
+			YesNoPopup yn = new YesNoPopup(text);
+			yn.showDialog(this.world.getRootPane());
+			choice = yn.selection;
+		} else {
+			choice = new Random().nextBoolean();
+		}
+		return choice;
+	}
+	
 	public void changeCareer(Player player) {
 		boolean change = false;
 		if (!player.isComputerPlayer()) {
@@ -699,8 +710,7 @@ public class NewSlickGame implements GameInterface {
 	
 	public void tryPayBankCard(Player player, int amount) {
 		
-		String[] options = {"Yes","No"};
-		boolean choosePay = choosePath(player,player.getPlayerName() + ", do you want to use your Share The Wealth card so someone else pays half of $"+amount+"?",options);
+		boolean choosePay = yesNoChoice(player,player.getPlayerName() + ", do you want to use your Share The Wealth card so someone else pays half of $"+amount+"?");
 		if (choosePay) {
 			
 			Player[] others = new Player[players.size()-1];
@@ -797,7 +807,7 @@ public class NewSlickGame implements GameInterface {
 				popup.showDialog(this.world.getRootPane());
 				select = popup.selection;
 			} else {
-				boolean play = new Random().nextBoolean();
+				boolean play = true;//new Random().nextBoolean();
 				if (!play) continue;
 				select = new ArrayList<Integer>();
 				if (p.hasSPIN4Card()) {
@@ -819,6 +829,10 @@ public class NewSlickGame implements GameInterface {
 				}
 				boolean big_wager = new Random().nextBoolean();
 				p.setSpintowin_wager(big_wager?20000:5000);
+				
+				String selString = "";
+				for (Integer pick : select) selString += pick + ", ";
+				messageDialog(p, p.getPlayerName() + " selected " + selString + " and is wagering $" + p.getSpintowin_wager());
 			}
 			
 			if (select == null) continue; //did not play
