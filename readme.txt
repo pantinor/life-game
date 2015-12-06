@@ -6,9 +6,10 @@ I used awesome sprites from this website: http://www.reinerstilesets.de/
 
 Maven Notes:
 
-The TWL and Slick depdencies are not in public Sonus Nexus repository (not that I could find) so I patch them manually in my M2 local.  Check the pom.xml for the detail. 
+TWL was not in any maven repo so I added the source locally with this project.
 
+TO run in IDE, I used these settings, ie in nbactions.xml:
 
+-Djava.library.path=./target/classes -classpath %classpath org.antinori.game.slick.LifeGame
 
-
-
+![screenshot of the example](https://raw.github.com/pantinor/life-game/master/example1.png)

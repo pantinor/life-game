@@ -34,9 +34,9 @@ import de.matthiasmann.twl.Event;
 import de.matthiasmann.twl.Widget;
 
 /**
- * RootPane for all game states.
- * It forwards input events which where not handled by the UI to the game state.
- * 
+ * RootPane for all game states. It forwards input events which where not
+ * handled by the UI to the game state.
+ *
  * @author Matthias Mann
  */
 public class RootPane extends DesktopArea {
@@ -55,37 +55,39 @@ public class RootPane extends DesktopArea {
     }
 
     /**
-     * When subclassing this class it's strongly suggested to provide
-     * a default constructor to allow previewing in the Theme Editor.
+     * When subclassing this class it's strongly suggested to provide a default
+     * constructor to allow previewing in the Theme Editor.
      */
     protected RootPane() {
         this.state = null;
-        
+
         setCanAcceptKeyboardFocus(true);
-        
+
         System.err.println("This constructor is only intended to by called to preview subclass in the TWL Theme Editor");
     }
 
     /**
      * Returns the game state to which this root pane is associated with.
+     *
      * @return the game state or null when in preview mode (Theme Editor).
-     * @see #isPreviewMode() 
+     * @see #isPreviewMode()
      */
     public final BasicTWLGameState getState() {
         return state;
     }
-    
+
     /**
      * Returns true when the root pane is in preview mode (Theme Editor).
+     *
      * @return true when the root pane is in preview mode (Theme Editor).
      */
     public final boolean isPreviewMode() {
         return state == null;
     }
-    
+
     @Override
     protected void keyboardFocusLost() {
-        if(state != null) {
+        if (state != null) {
             state.keyboardFocusLost();
         }
     }
@@ -104,7 +106,7 @@ public class RootPane extends DesktopArea {
             return true;
         }
 
-        if(state != null) {
+        if (state != null) {
             switch (evt.getType()) {
                 case KEY_PRESSED:
                     state.keyPressed(evt.getKeyCode(), evt.getKeyChar());

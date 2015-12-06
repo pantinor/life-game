@@ -5,10 +5,10 @@ import org.newdawn.slick.Graphics;
 
 public interface State {
 
-	public void init();
+    public void init();
 
-	public void update(GameContainer container, int delta);
+    public void update(GameContainer container, int delta);
 
-	public void render(Graphics g);
+    public void render(Graphics g);
 
 }

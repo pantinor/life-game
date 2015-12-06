@@ -36,40 +36,84 @@
     </images>
     
     <theme name="helpDialog" ref="-defaults">
-        <param name="background"><image>popup.background</image></param>
-        <param name="border"><border>20</border></param>
+        <param name="background">
+            <image>popup.background</image>
+        </param>
+        <param name="border">
+            <border>20</border>
+        </param>
         <theme name="dialoglayout" ref="dialoglayout">
             <theme name="scrollpane" ref="scrollpane">
-                <param name="background"><image>help.scrollpane.background</image></param>
+                <param name="background">
+                    <image>help.scrollpane.background</image>
+                </param>
                 <theme name="textarea" ref="textarea">
-                    <param name="background"><image>none</image></param>
-                    <param name="fonts"><map>
-                        <param name="default"><fontDef filename="font.fnt"/></param>
-                        <param name="big"><fontDef filename="bigfont.fnt"/></param>
-                        <param name="link"><fontDef filename="font.fnt" underlineOffset="1">
-                            <fontParam if="hover" underline="true"/>
-                        </fontDef></param>
-                    </map></param>
-                    <param name="images"><map>
-                        <param name="white"><image>white</image></param>
-                        <param name="twl-logo"><image>twl-logo</image></param>
-                        <param name="mainui.area"><image>help.mainui.area</image></param>
-                        <param name="opMoveNodeUp"><image>help.button.opMoveNodeUp</image></param>
-                        <param name="opMoveNodeDown"><image>help.button.opMoveNodeDown</image></param>
-                        <param name="opDeleteNode"><image>help.button.opDeleteNode</image></param>
-                        <param name="opNewNode"><image>help.button.opNewNode</image></param>
-                        <param name="opCloneNode"><image>help.button.opCloneNode</image></param>
-                        <param name="opCopyNode"><image>help.button.opCopyNode</image></param>
-                        <param name="icon"><image>icon.*</image></param>
-                    </map></param>
+                    <param name="background">
+                        <image>none</image>
+                    </param>
+                    <param name="fonts">
+                        <map>
+                            <param name="default">
+                                <fontDef filename="font.fnt"/>
+                            </param>
+                            <param name="big">
+                                <fontDef filename="bigfont.fnt"/>
+                            </param>
+                            <param name="link">
+                                <fontDef filename="font.fnt" underlineOffset="1">
+                                    <fontParam if="hover" underline="true"/>
+                                </fontDef>
+                            </param>
+                        </map>
+                    </param>
+                    <param name="images">
+                        <map>
+                            <param name="white">
+                                <image>white</image>
+                            </param>
+                            <param name="twl-logo">
+                                <image>twl-logo</image>
+                            </param>
+                            <param name="mainui.area">
+                                <image>help.mainui.area</image>
+                            </param>
+                            <param name="opMoveNodeUp">
+                                <image>help.button.opMoveNodeUp</image>
+                            </param>
+                            <param name="opMoveNodeDown">
+                                <image>help.button.opMoveNodeDown</image>
+                            </param>
+                            <param name="opDeleteNode">
+                                <image>help.button.opDeleteNode</image>
+                            </param>
+                            <param name="opNewNode">
+                                <image>help.button.opNewNode</image>
+                            </param>
+                            <param name="opCloneNode">
+                                <image>help.button.opCloneNode</image>
+                            </param>
+                            <param name="opCopyNode">
+                                <image>help.button.opCopyNode</image>
+                            </param>
+                            <param name="icon">
+                                <image>icon.*</image>
+                            </param>
+                        </map>
+                    </param>
                 </theme>
             </theme>
             <theme name="closebutton" ref="button">
-                <param name="text"><string>Close</string></param>
+                <param name="text">
+                    <string>Close</string>
+                </param>
             </theme>
-            <param name="namedGaps"><map>
-                <param name="scrollpane-closebutton"><gap>20</gap></param>
-            </map></param>
+            <param name="namedGaps">
+                <map>
+                    <param name="scrollpane-closebutton">
+                        <gap>20</gap>
+                    </param>
+                </map>
+            </param>
         </theme>
     </theme>
 

@@ -48,13 +48,13 @@ import org.newdawn.slick.state.transition.Transition;
 
 /**
  * A StateBaseGame subclass with support for a TWL Ui per state.
- * 
+ *
  * @author Matthias Mann
  */
 public abstract class TWLStateBasedGame extends StateBasedGame {
 
     private final Widget emptyRootWidget;
-    
+
     private GUI gui;
     private boolean guiInitialized;
 
@@ -64,13 +64,12 @@ public abstract class TWLStateBasedGame extends StateBasedGame {
         emptyRootWidget = new Widget();
         emptyRootWidget.setTheme("");
     }
-    
-
 
     /**
      * Adds a new game state
+     *
      * @param state the game state
-     * @see StateBasedGame#addState(org.newdawn.slick.state.GameState) 
+     * @see StateBasedGame#addState(org.newdawn.slick.state.GameState)
      */
     public void addState(BasicTWLGameState state) {
         super.addState(state);
@@ -79,14 +78,15 @@ public abstract class TWLStateBasedGame extends StateBasedGame {
     /**
      * Adds a new game state.
      *
-     * This method is overriden to ensure that only instances of BasicTWLGameState are added.
-     * 
+     * This method is overriden to ensure that only instances of
+     * BasicTWLGameState are added.
+     *
      * @param state the game state. Must be an instance of BasicTWLGameState
-     * @see StateBasedGame#addState(org.newdawn.slick.state.GameState) 
+     * @see StateBasedGame#addState(org.newdawn.slick.state.GameState)
      */
     @Override
     public void addState(GameState state) {
-        if(!(state instanceof BasicTWLGameState)) {
+        if (!(state instanceof BasicTWLGameState)) {
             throw new IllegalArgumentException("state must be a BasicTWLGameState");
         }
         super.addState(state);
@@ -94,23 +94,25 @@ public abstract class TWLStateBasedGame extends StateBasedGame {
 
     /**
      * Implement this method and return the URL for the TWL theme.
-     * 
+     *
      * @return the URL for the TWL theme. Must not be null.
      */
     protected abstract URL getThemeURL();
 
     /**
-     * Transits to a the specified game state.
-     * This method hides the UI of the current state before starting the transition.
+     * Transits to a the specified game state. This method hides the UI of the
+     * current state before starting the transition.
      *
      * @param id The ID of the state to enter
      * @param leave The transition to use when leaving the current state
      * @param enter The transition to use when entering the new state
-     * @see StateBasedGame#enterState(int, org.newdawn.slick.state.transition.Transition, org.newdawn.slick.state.transition.Transition)
+     * @see StateBasedGame#enterState(int,
+     * org.newdawn.slick.state.transition.Transition,
+     * org.newdawn.slick.state.transition.Transition)
      */
     @Override
     public void enterState(int id, Transition leave, Transition enter) {
-        if(gui != null) {
+        if (gui != null) {
             gui.setRootPane(emptyRootWidget);
         }
         super.enterState(id, leave, enter);
@@ -123,11 +125,11 @@ public abstract class TWLStateBasedGame extends StateBasedGame {
     }
 
     protected void setRootPane(RootPane rootPane) throws SlickException {
-        if(!guiInitialized) {
+        if (!guiInitialized) {
             guiInitialized = true;
             initGUI();
         }
-        if(gui != null) {
+        if (gui != null) {
             gui.setRootPane(rootPane);
         }
     }
@@ -153,14 +155,14 @@ public abstract class TWLStateBasedGame extends StateBasedGame {
 
     @Override
     protected void postRenderState(GameContainer container, Graphics g) throws SlickException {
-        if(gui != null) {
+        if (gui != null) {
             gui.draw();
         }
     }
 
     @Override
     protected void postUpdateState(GameContainer container, int delta) throws SlickException {
-        if(gui != null) {
+        if (gui != null) {
             gui.setSize();
             gui.handleTooltips();
             gui.updateTimers();

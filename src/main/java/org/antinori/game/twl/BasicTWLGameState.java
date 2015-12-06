@@ -39,10 +39,13 @@ import org.newdawn.slick.state.StateBasedGame;
 /**
  * The base class for all game states when using TWLStateBasedGame.
  *
- * <p>To create your UI you can override {@link #createRootPane()} or
+ * <p>
+ * To create your UI you can override {@link #createRootPane()} or
  * {@link #init(org.newdawn.slick.GameContainer, org.newdawn.slick.state.StateBasedGame)}.</p>
  *
- * <p>Set the position and size of the widgets inside {@link #layoutRootPane()}.</p>
+ * <p>
+ * Set the position and size of the widgets inside
+ * {@link #layoutRootPane()}.</p>
  *
  * @author Matthias Mann
  */
@@ -51,15 +54,15 @@ public abstract class BasicTWLGameState extends BasicGameState {
     private RootPane rootPane;
 
     /**
-     * Returns the root pane for this game state.
-     * Calls {@link #createRootPane()} if it has not yet been created.
+     * Returns the root pane for this game state. Calls
+     * {@link #createRootPane()} if it has not yet been created.
      *
      * @return the root pane
      */
     public RootPane getRootPane() {
-        if(rootPane == null) {
+        if (rootPane == null) {
             rootPane = createRootPane();
-            if(rootPane.getState() != this) {
+            if (rootPane.getState() != this) {
                 throw new IllegalStateException("rootPane.getState() != this");
             }
         }
@@ -67,8 +70,8 @@ public abstract class BasicTWLGameState extends BasicGameState {
     }
 
     /**
-     * Installs the rootPane of this state as the active root pane.
-     * Calls createRootPane() on first run.
+     * Installs the rootPane of this state as the active root pane. Calls
+     * createRootPane() on first run.
      *
      * @param container the GameContainer instance
      * @param game the StateBasedGame instance
@@ -77,19 +80,23 @@ public abstract class BasicTWLGameState extends BasicGameState {
      */
     @Override
     public void enter(GameContainer container, StateBasedGame game) throws SlickException {
-        ((TWLStateBasedGame)game).setRootPane(getRootPane());
+        ((TWLStateBasedGame) game).setRootPane(getRootPane());
     }
 
     /**
-     * Override this method to customize the root pane for your UI for this state.
+     * Override this method to customize the root pane for your UI for this
+     * state.
      *
-     * <p>The theme name of the RootPane created by this method is "state"+getID().
+     * <p>
+     * The theme name of the RootPane created by this method is "state"+getID().
      * It will also register all action methods to the rootPane.</p>
      *
-     * <p>Do not call this method. Call {@link #getRootPane()} instead</p>
+     * <p>
+     * Do not call this method. Call {@link #getRootPane()} instead</p>
      *
-     * <p>When overriding this method don't call {@link #getRootPane()} from
-     * within this method or it will lead to an endless loop.</p>
+     * <p>
+     * When overriding this method don't call {@link #getRootPane()} from within
+     * this method or it will lead to an endless loop.</p>
      *
      * @return the created root pane
      * @see ActionMap.Action
@@ -99,28 +106,29 @@ public abstract class BasicTWLGameState extends BasicGameState {
      */
     protected RootPane createRootPane() {
         assert rootPane == null : "RootPane already created";
-        
+
         RootPane rp = new RootPane(this);
-        rp.setTheme("state"+getID());
+        rp.setTheme("state" + getID());
         rp.getOrCreateActionMap().addMapping(this);
         return rp;
     }
 
     /**
-     * This method is called when keyboard focus is transfered to a UI widget
-     * or to another application.
+     * This method is called when keyboard focus is transfered to a UI widget or
+     * to another application.
      */
     protected void keyboardFocusLost() {
     }
 
     /**
-     * This method is called when the layout of the root pane needs to be updated.
+     * This method is called when the layout of the root pane needs to be
+     * updated.
      *
      * Widget position and size should only be changed within this method.
      *
      * @see Widget#setPosition(int, int)
      * @see Widget#setSize(int, int)
-     * @see Widget#adjustSize() 
+     * @see Widget#adjustSize()
      */
     protected void layoutRootPane() {
     }

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE themes PUBLIC "-//www.matthiasmann.de//TWL-Theme//EN" "http://hg.l33tlabs.org/twl/raw-file/tip/src/de/matthiasmann/twl/theme/theme.dtd">
 <themes>
-    <constantDef name="keyboardFocus"><color>#6f97df</color></constantDef>
+    <constantDef name="keyboardFocus">
+        <color>#6f97df</color>
+    </constantDef>
     
     <images file="gui.png" format="RGBA" comment="Buttons">
         <area name="--area1L" xywh="0,0,4,18"/>
@@ -1021,16 +1023,16 @@
     
     </images>
     
-        <images file="chat.png" format="RGBA" filter="linear">
+    <images file="chat.png" format="RGBA" filter="linear">
             
-            <area name="evilframe.background" border="27,10,10,10" xywh="40,1,20,29" splitx="L5,R5" splity="T19,B5"/>
-            <area name="-evilinnerframe.background" splitx="2,3" splity="2,3" xywh="17,1,5,5"/>
-            <select name="evilinnerframe.background" border="2">
-                <alias ref="-evilinnerframe.background" if="disabled" tint="#888"/>
-                <alias ref="-evilinnerframe.background"/>
-            </select>
+        <area name="evilframe.background" border="27,10,10,10" xywh="40,1,20,29" splitx="L5,R5" splity="T19,B5"/>
+        <area name="-evilinnerframe.background" splitx="2,3" splity="2,3" xywh="17,1,5,5"/>
+        <select name="evilinnerframe.background" border="2">
+            <alias ref="-evilinnerframe.background" if="disabled" tint="#888"/>
+            <alias ref="-evilinnerframe.background"/>
+        </select>
             
-           <composed name="itemslot.background" border="5" sizeOverwriteH="40" sizeOverwriteV="40">
+        <composed name="itemslot.background" border="5" sizeOverwriteH="40" sizeOverwriteV="40">
             <alias ref="-evilinnerframe.background"/>
             <alias ref="white" if="hover" tint="#80FFFFFF"/>
             <alias ref="white" if="armed" tint="#80FFFFAA"/>
@@ -1040,28 +1042,28 @@
             
     </images>
 
-   <images file="pirate-walking.png">
+    <images file="pirate-walking.png">
         <area name="icon.pirate" xywh="394,0,96,96" center="true"/>
     </images>   
-       <images file="santa-walking.png">
+    <images file="santa-walking.png">
         <area name="icon.santa" xywh="394,0,96,96" center="true"/>
     </images>   
-       <images file="arno-walking.png">
+    <images file="arno-walking.png">
         <area name="icon.arno" xywh="394,0,96,96" center="true"/>
     </images>   
-       <images file="lady-walking.png">
+    <images file="lady-walking.png">
         <area name="icon.lady" xywh="394,0,96,96" center="true"/>
     </images>   
-       <images file="girl-walking.png">
+    <images file="girl-walking.png">
         <area name="icon.girl" xywh="394,0,96,96" center="true"/>
     </images>   
-       <images file="builder-walking.png">
+    <images file="builder-walking.png">
         <area name="icon.builder" xywh="394,0,96,96" center="true"/>
     </images>   
-       <images file="doctor-walking.png">
+    <images file="doctor-walking.png">
         <area name="icon.doctor" xywh="394,0,96,96" center="true"/>
     </images>   
-       <images file="boy-walking.png">
+    <images file="boy-walking.png">
         <area name="icon.boy" xywh="394,0,96,96" center="true"/>
     </images>           
         
@@ -1111,350 +1113,694 @@
     </inputMapDef>
 
     <theme name="-defaults">
-        <param name="background"><image>none</image></param>
-        <param name="overlay"><image>none</image></param>
-        <param name="font"><font>normal</font></param>
-        <param name="textAlignment"><enum type="alignment">left</enum></param>
-        <param name="minWidth"><int>0</int></param>
-        <param name="minHeight"><int>0</int></param>
-        <param name="maxWidth"><int>0</int></param>
-        <param name="maxHeight"><int>0</int></param>
-        <param name="inputMap"><inputMap>-defaultInputMap</inputMap></param>
+        <param name="background">
+            <image>none</image>
+        </param>
+        <param name="overlay">
+            <image>none</image>
+        </param>
+        <param name="font">
+            <font>normal</font>
+        </param>
+        <param name="textAlignment">
+            <enum type="alignment">left</enum>
+        </param>
+        <param name="minWidth">
+            <int>0</int>
+        </param>
+        <param name="minHeight">
+            <int>0</int>
+        </param>
+        <param name="maxWidth">
+            <int>0</int>
+        </param>
+        <param name="maxHeight">
+            <int>0</int>
+        </param>
+        <param name="inputMap">
+            <inputMap>-defaultInputMap</inputMap>
+        </param>
     </theme>
 
     <theme name="*" ref="-defaults"/>
     
     <theme name="label" ref="-defaults" allowWildcard="true">
-        <param name="font"><font>button-font</font></param>
+        <param name="font">
+            <font>button-font</font>
+        </param>
     </theme>
 
     <theme name="button" ref="-defaults" allowWildcard="true">
-        <param name=""><image>button.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="textAlignment"><enum type="alignment">center</enum></param>
-        <param name="minWidth"><int>20</int></param>
-        <param name="minHeight"><int>25</int></param>
+        <param name="">
+            <image>button.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="textAlignment">
+            <enum type="alignment">center</enum>
+        </param>
+        <param name="minWidth">
+            <int>20</int>
+        </param>
+        <param name="minHeight">
+            <int>25</int>
+        </param>
     </theme>
 
     <theme name="vbutton" ref="button" allowWildcard="true">
-        <param name=""><image>vbutton.*</image></param>
-        <param name="border"><border>background.border</border></param>
+        <param name="">
+            <image>vbutton.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
     </theme>
 
     <theme name="radiobutton" ref="button" allowWildcard="true">
-        <param name=""><image>radiobutton.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="font"><font>button-font</font></param>
+        <param name="">
+            <image>radiobutton.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="font">
+            <font>button-font</font>
+        </param>
     </theme>
 
     <theme name="togglebutton" ref="button" allowWildcard="true">
-        <param name=""><image>togglebutton.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="font"><font>button-font</font></param>
+        <param name="">
+            <image>togglebutton.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="font">
+            <font>button-font</font>
+        </param>
     </theme>
 
     <theme name="checkbox" ref="-defaults" allowWildcard="true">
-        <param name=""><image>checkbox.*</image></param>
-        <param name="minWidth"><int>13</int></param>
-        <param name="minHeight"><int>13</int></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="font"><font>checkbox</font></param>
+        <param name="">
+            <image>checkbox.*</image>
+        </param>
+        <param name="minWidth">
+            <int>13</int>
+        </param>
+        <param name="minHeight">
+            <int>13</int>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="font">
+            <font>checkbox</font>
+        </param>
     </theme>
 
     <theme name="popupMenuButton" ref="button">
-        <param name=""><image>popupmenubutton.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="textAlignment"><enum type="alignment">left</enum></param>
-        <param name="font"><font>popupmenu-font</font></param>
+        <param name="">
+            <image>popupmenubutton.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="textAlignment">
+            <enum type="alignment">left</enum>
+        </param>
+        <param name="font">
+            <font>popupmenu-font</font>
+        </param>
     </theme>
 
     <theme name="popupMenuCheckbox" ref="button">
-        <param name=""><image>popupmenucheckbox.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="textAlignment"><enum type="alignment">left</enum></param>
-        <param name="font"><font>popupmenu-font</font></param>
+        <param name="">
+            <image>popupmenucheckbox.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="textAlignment">
+            <enum type="alignment">left</enum>
+        </param>
+        <param name="font">
+            <font>popupmenu-font</font>
+        </param>
     </theme>
 
     <theme name="popupMenuRadioButton" ref="button">
-        <param name=""><image>popupmenuradiobtn.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="textAlignment"><enum type="alignment">left</enum></param>
-        <param name="font"><font>popupmenu-font</font></param>
+        <param name="">
+            <image>popupmenuradiobtn.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="textAlignment">
+            <enum type="alignment">left</enum>
+        </param>
+        <param name="font">
+            <font>popupmenu-font</font>
+        </param>
     </theme>
 
     <theme name="popupMenuSubMenuButton" ref="button">
-        <param name=""><image>popupmenusubmenubutton.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="textAlignment"><enum type="alignment">left</enum></param>
-        <param name="font"><font>popupmenu-font</font></param>
+        <param name="">
+            <image>popupmenusubmenubutton.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="textAlignment">
+            <enum type="alignment">left</enum>
+        </param>
+        <param name="font">
+            <font>popupmenu-font</font>
+        </param>
     </theme>
 
     <theme name="editfield" ref="label" allowWildcard="true">
-        <param name=""><image>editfield.*</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="passwordChar"><int>0x25CF</int></param>
-        <param name="minHeight"><int>25</int></param>
-        <param name="maxWidth"><int>32767</int></param>
-        <param name="columns"><int>5</int></param>
+        <param name="">
+            <image>editfield.*</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="passwordChar">
+            <int>0x25CF</int>
+        </param>
+        <param name="minHeight">
+            <int>25</int>
+        </param>
+        <param name="maxWidth">
+            <int>32767</int>
+        </param>
+        <param name="columns">
+            <int>5</int>
+        </param>
         <theme name="renderer" ref="label"/>
-        <param name="mouseCursor"><cursor>cursor.text</cursor></param>
-        <param name="autocompletion-height"><int>150</int></param>
+        <param name="mouseCursor">
+            <cursor>cursor.text</cursor>
+        </param>
+        <param name="autocompletion-height">
+            <int>150</int>
+        </param>
     </theme>
     <theme name="editfield-errorinfowindow" ref="-defaults">
-        <param name="background"><image>tooltipwindow.background</image></param>
-        <param name="border"><border>background.border</border></param>
+        <param name="background">
+            <image>tooltipwindow.background</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
         <theme name="label" ref="label"/>
     </theme>
 
     <theme name="combobox" ref="-defaults" allowWildcard="true">
-        <param name=""><image>combobox.*</image></param>
+        <param name="">
+            <image>combobox.*</image>
+        </param>
         <theme name="display" ref="label">
-            <param name=""><image>combobox.display.*</image></param>
-            <param name="border"><border>4,1</border></param>
-            <param name="minWidth"><int>50</int></param>
-            <param name="textAlignment"><enum type="alignment">left</enum></param>
-            <param name="font"><fontDef filename="font.fnt" color="white">
-                <fontParam if="error" color="#FF0000"/>
-                <fontParam if="hasOpenPopups" color="#aaa"/>
-            </fontDef></param>
+            <param name="">
+                <image>combobox.display.*</image>
+            </param>
+            <param name="border">
+                <border>4,1</border>
+            </param>
+            <param name="minWidth">
+                <int>50</int>
+            </param>
+            <param name="textAlignment">
+                <enum type="alignment">left</enum>
+            </param>
+            <param name="font">
+                <fontDef filename="font.fnt" color="white">
+                    <fontParam if="error" color="#FF0000"/>
+                    <fontParam if="hasOpenPopups" color="#aaa"/>
+                </fontDef>
+            </param>
         </theme>
         <theme name="button" ref="-defaults">
-            <param name=""><image>combobox.button.*</image></param>
-            <param name="minWidth"><int>18</int></param>
+            <param name="">
+                <image>combobox.button.*</image>
+            </param>
+            <param name="minWidth">
+                <int>18</int>
+            </param>
         </theme>
-        <param name="minHeight"><int>25</int></param>
+        <param name="minHeight">
+            <int>25</int>
+        </param>
     </theme>
 
     <theme name="valueadjuster" ref="-defaults" allowWildcard="true">
-        <param name=""><image>valueadjuster.*</image></param>
+        <param name="">
+            <image>valueadjuster.*</image>
+        </param>
         <theme name="decButton" ref="button">
-            <param name=""><image>valueadjuster.dec.*</image></param>
-            <param name="border"><border>0</border></param>
-            <param name="minWidth"><int>12</int></param>
+            <param name="">
+                <image>valueadjuster.dec.*</image>
+            </param>
+            <param name="border">
+                <border>0</border>
+            </param>
+            <param name="minWidth">
+                <int>12</int>
+            </param>
         </theme>
         <theme name="incButton" ref="button">
-            <param name=""><image>valueadjuster.inc.*</image></param>
-            <param name="border"><border>0</border></param>
-            <param name="minWidth"><int>12</int></param>
+            <param name="">
+                <image>valueadjuster.inc.*</image>
+            </param>
+            <param name="border">
+                <border>0</border>
+            </param>
+            <param name="minWidth">
+                <int>12</int>
+            </param>
         </theme>
         <theme name="valueDisplay" ref="button">
-            <param name=""><image>valueadjuster.display.*</image></param>
-            <param name="textAlignment"><enum type="alignment">center</enum></param>
-            <param name="font"><font>normal</font></param>
+            <param name="">
+                <image>valueadjuster.display.*</image>
+            </param>
+            <param name="textAlignment">
+                <enum type="alignment">center</enum>
+            </param>
+            <param name="font">
+                <font>normal</font>
+            </param>
         </theme>
         <theme name="valueEdit" ref="editfield">
-            <param name=""><image>valueadjuster.edit.*</image></param>
-            <param name="overlay"><image>none</image></param>
+            <param name="">
+                <image>valueadjuster.edit.*</image>
+            </param>
+            <param name="overlay">
+                <image>none</image>
+            </param>
         </theme>
-        <param name="width"><int>100</int></param>
-        <param name="maxWidth"><int>32767</int></param>
-        <param name="useMouseWheel"><bool>false</bool></param>
-        <param name="displayPrefix"><string/></param>
+        <param name="width">
+            <int>100</int>
+        </param>
+        <param name="maxWidth">
+            <int>32767</int>
+        </param>
+        <param name="useMouseWheel">
+            <bool>false</bool>
+        </param>
+        <param name="displayPrefix">
+            <string/>
+        </param>
     </theme>
 
     <theme name="vscrollbar" ref="-defaults" allowWildcard="true">
-        <param name="background"><image>vscrollbar.background</image></param>
+        <param name="background">
+            <image>vscrollbar.background</image>
+        </param>
         <theme name="upbutton" ref="-defaults"/>
         <theme name="downbutton" ref="-defaults"/>
         <theme name="thumb" ref="-defaults">
-            <param name=""><image>vscrollbar.thumb.*</image></param>
-            <param name="minHeight"><int>32</int></param>
+            <param name="">
+                <image>vscrollbar.thumb.*</image>
+            </param>
+            <param name="minHeight">
+                <int>32</int>
+            </param>
         </theme>
-        <param name="scaleThumb"><bool>true</bool></param>
-        <param name="minWidth"><int>13</int></param>
-        <param name="minHeight"><int>48</int></param>
+        <param name="scaleThumb">
+            <bool>true</bool>
+        </param>
+        <param name="minWidth">
+            <int>13</int>
+        </param>
+        <param name="minHeight">
+            <int>48</int>
+        </param>
     </theme>
 
     <theme name="hscrollbar" ref="-defaults" allowWildcard="true">
-        <param name="background"><image>hscrollbar.background</image></param>
+        <param name="background">
+            <image>hscrollbar.background</image>
+        </param>
         <theme name="leftbutton" ref="-defaults"/>
         <theme name="rightbutton" ref="-defaults"/>
         <theme name="thumb" ref="-defaults">
-            <param name=""><image>hscrollbar.thumb.*</image></param>
-            <param name="minWidth"><int>32</int></param>
+            <param name="">
+                <image>hscrollbar.thumb.*</image>
+            </param>
+            <param name="minWidth">
+                <int>32</int>
+            </param>
         </theme>
-        <param name="scaleThumb"><bool>true</bool></param>
-        <param name="minWidth"><int>48</int></param>
-        <param name="minHeight"><int>13</int></param>
+        <param name="scaleThumb">
+            <bool>true</bool>
+        </param>
+        <param name="minWidth">
+            <int>48</int>
+        </param>
+        <param name="minHeight">
+            <int>13</int>
+        </param>
     </theme>
 
     <theme name="dialoglayout" ref="-defaults" allowWildcard="true">
-        <param name="defaultGap"><dimension>5,5</dimension></param>
-        <param name="smallGap"><dimension>8,8</dimension></param>
-        <param name="mediumGap"><dimension>10,10</dimension></param>
-        <param name="largeGap"><dimension>15,15</dimension></param>
-        <param name="namedGaps"><map>
-            <param name="radiobutton"><gap>0</gap></param>
-            <param name="adjuster"><gap>0</gap></param>
-            <param name="vbutton"><gap>0</gap></param>
-        </map></param>
+        <param name="defaultGap">
+            <dimension>5,5</dimension>
+        </param>
+        <param name="smallGap">
+            <dimension>8,8</dimension>
+        </param>
+        <param name="mediumGap">
+            <dimension>10,10</dimension>
+        </param>
+        <param name="largeGap">
+            <dimension>15,15</dimension>
+        </param>
+        <param name="namedGaps">
+            <map>
+                <param name="radiobutton">
+                    <gap>0</gap>
+                </param>
+                <param name="adjuster">
+                    <gap>0</gap>
+                </param>
+                <param name="vbutton">
+                    <gap>0</gap>
+                </param>
+            </map>
+        </param>
     </theme>
 
     <theme name="simpledialog" ref="-defaults">
-        <param name="background"><image>frame.background</image></param>
-        <param name="border"><border>20</border></param>
+        <param name="background">
+            <image>frame.background</image>
+        </param>
+        <param name="border">
+            <border>20</border>
+        </param>
         <theme name="content" ref="dialoglayout">
             <theme name="title" ref="label"/>
             <theme name="btnOk" ref="button"/>
             <theme name="btnCancel" ref="button"/>
             <theme name="" ref="*"/>
-            <param name="namedGaps"><map>
-                <param name="title-buttons"><gap>20</gap></param>
-                <param name="title-msg"><gap>10</gap></param>
-                <param name="top-msg"><gap>0</gap></param>
-                <param name="msg-buttons"><gap>20</gap></param>
-                <param name="left-msg"><gap>0</gap></param>
-                <param name="msg-right"><gap>0,0,32767</gap></param>
-                <param name="left-btnOk"><gap>0,0,32767</gap></param>
-                <param name="btnOk-btnCancel"><gap>20</gap></param>
-                <param name="btnCancel-right"><gap>0</gap></param>
-            </map></param>
+            <param name="namedGaps">
+                <map>
+                    <param name="title-buttons">
+                        <gap>20</gap>
+                    </param>
+                    <param name="title-msg">
+                        <gap>10</gap>
+                    </param>
+                    <param name="top-msg">
+                        <gap>0</gap>
+                    </param>
+                    <param name="msg-buttons">
+                        <gap>20</gap>
+                    </param>
+                    <param name="left-msg">
+                        <gap>0</gap>
+                    </param>
+                    <param name="msg-right">
+                        <gap>0,0,32767</gap>
+                    </param>
+                    <param name="left-btnOk">
+                        <gap>0,0,32767</gap>
+                    </param>
+                    <param name="btnOk-btnCancel">
+                        <gap>20</gap>
+                    </param>
+                    <param name="btnCancel-right">
+                        <gap>0</gap>
+                    </param>
+                </map>
+            </param>
         </theme>
     </theme>
 
     <theme name="splitpane" ref="-defaults" allowWildcard="true">
         <theme name="" ref="*"/>
         <theme name="splitterHorizontal" ref="-defaults">
-            <param name=""><image>splitpane.hsplitter.*</image></param>
-            <param name="border"><border>background.border</border></param>
-            <param name="mouseCursor"><cursor>cursor.resizecolumn</cursor></param>
+            <param name="">
+                <image>splitpane.hsplitter.*</image>
+            </param>
+            <param name="border">
+                <border>background.border</border>
+            </param>
+            <param name="mouseCursor">
+                <cursor>cursor.resizecolumn</cursor>
+            </param>
         </theme>
         <theme name="splitterVertical" ref="-defaults">
-            <param name=""><image>splitpane.vsplitter.*</image></param>
-            <param name="border"><border>background.border</border></param>
-            <param name="mouseCursor"><cursor>cursor.resizerow</cursor></param>
+            <param name="">
+                <image>splitpane.vsplitter.*</image>
+            </param>
+            <param name="border">
+                <border>background.border</border>
+            </param>
+            <param name="mouseCursor">
+                <cursor>cursor.resizerow</cursor>
+            </param>
         </theme>
     </theme>
 
     <theme name="scrollpane" ref="-defaults" allowWildcard="true">
         <theme name="hscrollbar" ref="hscrollbar"/>
         <theme name="vscrollbar" ref="vscrollbar"/>
-        <param name="minWidth"><int>100</int></param>
-        <param name="minHeight"><int>100</int></param>
-        <param name="maxWidth"><int>32767</int></param>
-        <param name="maxHeight"><int>32767</int></param>
-        <param name="hasDragButton"><bool>false</bool></param>
-        <param name="autoScrollArea"><int>5</int></param>
-        <param name="autoScrollSpeed"><int>10</int></param>
-        <param name="scrollbarsAlwaysVisible"><bool>false</bool></param>
-        <param name=""><image>scrollpane.*</image></param>
+        <param name="minWidth">
+            <int>100</int>
+        </param>
+        <param name="minHeight">
+            <int>100</int>
+        </param>
+        <param name="maxWidth">
+            <int>32767</int>
+        </param>
+        <param name="maxHeight">
+            <int>32767</int>
+        </param>
+        <param name="hasDragButton">
+            <bool>false</bool>
+        </param>
+        <param name="autoScrollArea">
+            <int>5</int>
+        </param>
+        <param name="autoScrollSpeed">
+            <int>10</int>
+        </param>
+        <param name="scrollbarsAlwaysVisible">
+            <bool>false</bool>
+        </param>
+        <param name="">
+            <image>scrollpane.*</image>
+        </param>
     </theme>
 
     <theme name="listbox" ref="-defaults" allowWildcard="true">
-        <param name="background"><image>none</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="cellHeight"><int>font.lineHeight + 4</int></param>
-        <param name="cellWidth"><constant>SINGLE_COLUMN</constant></param>
-        <param name="rowMajor"><bool>true</bool></param>
-        <param name="fixedCellWidth"><bool>false</bool></param>
-        <param name="fixedCellHeight"><bool>false</bool></param>
-        <param name="maxHeight"><int>8000</int></param>
-        <param name="maxWidth"><int>8000</int></param>
-        <param name="minDisplayedRows"><int>1</int></param>
+        <param name="background">
+            <image>none</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="cellHeight">
+            <int>font.lineHeight + 4</int>
+        </param>
+        <param name="cellWidth">
+            <constant>SINGLE_COLUMN</constant>
+        </param>
+        <param name="rowMajor">
+            <bool>true</bool>
+        </param>
+        <param name="fixedCellWidth">
+            <bool>false</bool>
+        </param>
+        <param name="fixedCellHeight">
+            <bool>false</bool>
+        </param>
+        <param name="maxHeight">
+            <int>8000</int>
+        </param>
+        <param name="maxWidth">
+            <int>8000</int>
+        </param>
+        <param name="minDisplayedRows">
+            <int>1</int>
+        </param>
         <theme name="vscrollbar" ref="vscrollbar"/>
         <theme name="display" ref="label">
-            <param name=""><image>listbox.display.*</image></param>
-            <param name="font"><font>popupmenu-font</font></param>
-            <param name="border"><border>2</border></param>
+            <param name="">
+                <image>listbox.display.*</image>
+            </param>
+            <param name="font">
+                <font>popupmenu-font</font>
+            </param>
+            <param name="border">
+                <border>2</border>
+            </param>
         </theme>
     </theme>
 
     <theme name="comboboxPopup" ref="-defaults">
-        <param name="background"><image>popup.background</image></param>
-        <param name="border"><border>2</border></param>
+        <param name="background">
+            <image>popup.background</image>
+        </param>
+        <param name="border">
+            <border>2</border>
+        </param>
         <theme name="listbox" ref="listbox">
-            <param name="background"><image>none</image></param>
-            <param name="border"><border>0</border></param>
-            <param name="minDisplayedRows"><int>5</int></param>
+            <param name="background">
+                <image>none</image>
+            </param>
+            <param name="border">
+                <border>0</border>
+            </param>
+            <param name="minDisplayedRows">
+                <int>5</int>
+            </param>
             <theme name="display" ref="popupMenuButton"/>
         </theme>
-        <param name="maxHeight"><int>150</int></param>
+        <param name="maxHeight">
+            <int>150</int>
+        </param>
     </theme>
 
     <theme name="editfieldautocompletionwindow" ref="-defaults">
-        <param name="background"><image>popup.background</image></param>
+        <param name="background">
+            <image>popup.background</image>
+        </param>
         <theme name="listbox" ref="listbox">
             <theme name="display" ref="popupMenuButton">
-                <param name="background"><image>autocompletion.listbox.display.background</image></param>
+                <param name="background">
+                    <image>autocompletion.listbox.display.background</image>
+                </param>
             </theme>
         </theme>
     </theme>
 
     <theme name="-treecellrenderer" ref="-defaults">
-        <param name="treeIndent"><int>15</int></param>
-        <param name="treeButtonSize"><dimension>14,11</dimension></param>
+        <param name="treeIndent">
+            <int>15</int>
+        </param>
+        <param name="treeButtonSize">
+            <dimension>14,11</dimension>
+        </param>
     </theme>
     <theme name="table" ref="-defaults" allowWildcard="true">
-        <param name="rowHeight"><int>font.lineHeight + 6</int></param>
+        <param name="rowHeight">
+            <int>font.lineHeight + 6</int>
+        </param>
         <theme name="stringcellrenderer" ref="-defaults">
-            <param name="font"><font>normal</font></param>
-            <param name="border"><border>0,3,0,0</border></param>
+            <param name="font">
+                <font>normal</font>
+            </param>
+            <param name="border">
+                <border>0,3,0,0</border>
+            </param>
         </theme>
         <theme name="TreeLeafCellRenderer" ref="-treecellrenderer"/>
         <theme name="TreeNodeCellRenderer" ref="-treecellrenderer"/>
         <theme name="PropertyEditorCellRender" ref="-treecellrenderer"/>
         <theme name="PropertyListCellRenderer" ref="-treecellrenderer">
-            <param name=""><image>propertysheet.sublist.*</image></param>
+            <param name="">
+                <image>propertysheet.sublist.*</image>
+            </param>
             <theme name="label" ref="label"/>
         </theme>
         <theme name="spanrenderer" ref="-defaults"/>
         <theme name="treeButton" ref="-defaults">
-            <param name=""><image>treetable.treebutton.*</image></param>
+            <param name="">
+                <image>treetable.treebutton.*</image>
+            </param>
         </theme>
         <theme name="columnHeader" ref="button">
-            <param name=""><image>columnHeader.*</image></param>
+            <param name="">
+                <image>columnHeader.*</image>
+            </param>
         </theme>
-        <param name="columnHeaderWidth"><int>256</int></param>
-        <param name="columnHeaderHeight"><int>20</int></param>
-        <param name="columnDividerDragableDistance"><int>3</int></param>
-        <param name="columnResizeCursor"><cursor>cursor.resizecolumn</cursor></param>
-        <param name="columnDivider"><image>none</image></param>
-        <param name="columnWidths"><map/></param>
-        <param name="ensureColumnHeaderMinWidth"><bool>true</bool></param>
-        <param name="dragNotPossibleCursor"><cursor>cursor.nodrag</cursor></param>
-        <param name="row"><image>table.row.*</image></param>
-        <param name="inputMap"><inputMapDef ref="-defaultInputMap">
-            <action name="toggleSelectionOnLeadRow">ctrl SPACE</action>
-            <action name="selectNextRow">DOWN</action>
-            <action name="selectPreviousRow">UP</action>
-            <action name="selectNextPage">NEXT</action>
-            <action name="selectPreviousPage">PRIOR</action>
-            <action name="selectFirstRow">HOME</action>
-            <action name="selectLastRow">END</action>
-            <action name="extendSelectionToNextRow">shift DOWN</action>
-            <action name="extendSelectionToPreviousRow">shift UP</action>
-            <action name="extendSelectionToNextPage">shift NEXT</action>
-            <action name="extendSelectionToPreviousPage">shift PRIOR</action>
-            <action name="extendSelectionToFirstRow">shift HOME</action>
-            <action name="extendSelectionToLastRow">shift END</action>
-            <action name="moveLeadToNextRow">ctrl DOWN</action>
-            <action name="moveLeadToPreviousRow">ctrl UP</action>
-            <action name="moveLeadToNextPage">ctrl NEXT</action>
-            <action name="moveLeadToPreviousPage">ctrl PRIOR</action>
-            <action name="moveLeadToFirstRow">ctrl HOME</action>
-            <action name="moveLeadToLastRow">ctrl END</action>
-            <action name="expandLeadRow">ADD</action>
-            <action name="collapseLeadRow">SUBTRACT</action>
-        </inputMapDef></param>
+        <param name="columnHeaderWidth">
+            <int>256</int>
+        </param>
+        <param name="columnHeaderHeight">
+            <int>20</int>
+        </param>
+        <param name="columnDividerDragableDistance">
+            <int>3</int>
+        </param>
+        <param name="columnResizeCursor">
+            <cursor>cursor.resizecolumn</cursor>
+        </param>
+        <param name="columnDivider">
+            <image>none</image>
+        </param>
+        <param name="columnWidths">
+            <map/>
+        </param>
+        <param name="ensureColumnHeaderMinWidth">
+            <bool>true</bool>
+        </param>
+        <param name="dragNotPossibleCursor">
+            <cursor>cursor.nodrag</cursor>
+        </param>
+        <param name="row">
+            <image>table.row.*</image>
+        </param>
+        <param name="inputMap">
+            <inputMapDef ref="-defaultInputMap">
+                <action name="toggleSelectionOnLeadRow">ctrl SPACE</action>
+                <action name="selectNextRow">DOWN</action>
+                <action name="selectPreviousRow">UP</action>
+                <action name="selectNextPage">NEXT</action>
+                <action name="selectPreviousPage">PRIOR</action>
+                <action name="selectFirstRow">HOME</action>
+                <action name="selectLastRow">END</action>
+                <action name="extendSelectionToNextRow">shift DOWN</action>
+                <action name="extendSelectionToPreviousRow">shift UP</action>
+                <action name="extendSelectionToNextPage">shift NEXT</action>
+                <action name="extendSelectionToPreviousPage">shift PRIOR</action>
+                <action name="extendSelectionToFirstRow">shift HOME</action>
+                <action name="extendSelectionToLastRow">shift END</action>
+                <action name="moveLeadToNextRow">ctrl DOWN</action>
+                <action name="moveLeadToPreviousRow">ctrl UP</action>
+                <action name="moveLeadToNextPage">ctrl NEXT</action>
+                <action name="moveLeadToPreviousPage">ctrl PRIOR</action>
+                <action name="moveLeadToFirstRow">ctrl HOME</action>
+                <action name="moveLeadToLastRow">ctrl END</action>
+                <action name="expandLeadRow">ADD</action>
+                <action name="collapseLeadRow">SUBTRACT</action>
+            </inputMapDef>
+        </param>
         <theme name="" ref="*"/>
         <theme name="ComboBoxCellRenderer">
-            <param name="comboBoxHeight"><int>20</int></param>
+            <param name="comboBoxHeight">
+                <int>20</int>
+            </param>
         </theme>
         <theme name="EditFieldCellRenderer">
-            <param name="editFieldHeight"><int>20</int></param>
+            <param name="editFieldHeight">
+                <int>20</int>
+            </param>
         </theme>
-        <param name="overlay"><image>table.frame</image></param>
+        <param name="overlay">
+            <image>table.frame</image>
+        </param>
     </theme>
 
     <theme name="tablesearchwindow" ref="-defaults">
-        <param name="background"><image>popup.background</image></param>
-        <param name="border"><border>20</border></param>
+        <param name="background">
+            <image>popup.background</image>
+        </param>
+        <param name="border">
+            <border>20</border>
+        </param>
         <theme name="dialoglayout" ref="dialoglayout">
             <theme name="label" ref="label">
-                <param name="font"><font>popupmenu-font</font></param>
+                <param name="font">
+                    <font>popupmenu-font</font>
+                </param>
             </theme>
             <theme name="editfield" ref="editfield">
-                <param name="columns"><int>20</int></param>
+                <param name="columns">
+                    <int>20</int>
+                </param>
             </theme>
         </theme>
     </theme>
@@ -1462,233 +1808,447 @@
     <theme name="colorselector" ref="dialoglayout" allowWildcard="true">
         <theme name="label" ref="label"/>
         <theme name="colorarea1d" ref="-defaults">
-            <param name="minWidth"><int>30</int></param>
-            <param name="minHeight"><int>128</int></param>
-            <param name="background"><image>innerframe.background</image></param>
-            <param name="border"><border>2</border></param>
-            <param name=""><image>colorselector.1d.*</image></param>
+            <param name="minWidth">
+                <int>30</int>
+            </param>
+            <param name="minHeight">
+                <int>128</int>
+            </param>
+            <param name="background">
+                <image>innerframe.background</image>
+            </param>
+            <param name="border">
+                <border>2</border>
+            </param>
+            <param name="">
+                <image>colorselector.1d.*</image>
+            </param>
         </theme>
         <theme name="colorarea2d" ref="-defaults">
-            <param name="minWidth"><int>128</int></param>
-            <param name="minHeight"><int>128</int></param>
-            <param name="background"><image>innerframe.background</image></param>
-            <param name="border"><border>2</border></param>
-            <param name=""><image>colorselector.2d.*</image></param>
+            <param name="minWidth">
+                <int>128</int>
+            </param>
+            <param name="minHeight">
+                <int>128</int>
+            </param>
+            <param name="background">
+                <image>innerframe.background</image>
+            </param>
+            <param name="border">
+                <border>2</border>
+            </param>
+            <param name="">
+                <image>colorselector.2d.*</image>
+            </param>
         </theme>
         <theme name="valueadjuster" ref="valueadjuster"/>
         <theme name="previewLabel" ref="label">
-            <param name="text"><string>Current color:</string></param>
+            <param name="text">
+                <string>Current color:</string>
+            </param>
         </theme>
         <theme name="preview" ref="-defaults">
-            <param name="background"><image>innerframe.background</image></param>
-            <param name="border"><border>2</border></param>
-            <param name="minWidth"><int>64</int></param>
-            <param name="minHeight"><int>64</int></param>
+            <param name="background">
+                <image>innerframe.background</image>
+            </param>
+            <param name="border">
+                <border>2</border>
+            </param>
+            <param name="minWidth">
+                <int>64</int>
+            </param>
+            <param name="minHeight">
+                <int>64</int>
+            </param>
             <theme name="colorarea" ref="-defaults">
-                <param name="background"><image>white</image></param>
+                <param name="background">
+                    <image>white</image>
+                </param>
             </theme>
         </theme>
         <theme name="hexColorEditField" ref="editfield">
-            <param name="tooltip"><string>Current color in ARGB hex format</string></param>
+            <param name="tooltip">
+                <string>Current color in ARGB hex format</string>
+            </param>
         </theme>
     </theme>
 
     <theme name="textarea" ref="-defaults" allowWildcard="true">
-        <param name="background"><image>innerframe.background</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="fonts"><map>
-            <param name="default"><font>normal</font></param>
-        </map></param>
-        <param name="images"><map>
-        </map></param>
+        <param name="background">
+            <image>innerframe.background</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="fonts">
+            <map>
+                <param name="default">
+                    <font>normal</font>
+                </param>
+            </map>
+        </param>
+        <param name="images">
+            <map>
+            </map>
+        </param>
     </theme>
 
     <theme name="treepathdisplay" ref="-defaults" allowWildcard="true">
         <theme name="pathbox" ref="-defaults">
-            <param name="spacing"><int>0</int></param>
+            <param name="spacing">
+                <int>0</int>
+            </param>
             <theme name="node" ref="label">
-                <param name=""><image>treepathdisplay.node.*</image></param>
+                <param name="">
+                    <image>treepathdisplay.node.*</image>
+                </param>
             </theme>
             <theme name="separator" ref="label">
-                <param name="mouseCursor"><cursor>cursor.text</cursor></param>
-                <param name="border"><border>2,0</border></param>
+                <param name="mouseCursor">
+                    <cursor>cursor.text</cursor>
+                </param>
+                <param name="border">
+                    <border>2,0</border>
+                </param>
             </theme>
-            <param name="minHeight"><int>node.font.lineHeight + 4</int></param>
-            <param name="alignment"><enum type="alignment">center</enum></param>
-            <param name="mouseCursor"><cursor>cursor.text</cursor></param>
+            <param name="minHeight">
+                <int>node.font.lineHeight + 4</int>
+            </param>
+            <param name="alignment">
+                <enum type="alignment">center</enum>
+            </param>
+            <param name="mouseCursor">
+                <cursor>cursor.text</cursor>
+            </param>
         </theme>
         <theme name="patheditfield" ref="editfield"/>
     </theme>
 
     <theme name="treecombobox" ref="-defaults" allowWildcard="true">
-        <param name="background"><image>innerframe.background</image></param>
-        <param name="popupThemeName"><string>treecomboboxPopup</string></param>
+        <param name="background">
+            <image>innerframe.background</image>
+        </param>
+        <param name="popupThemeName">
+            <string>treecomboboxPopup</string>
+        </param>
         <theme name="display" ref="treepathdisplay">
-            <param name=""><image>combobox.display.*</image></param>
-            <param name="minWidth"><int>50</int></param>
+            <param name="">
+                <image>combobox.display.*</image>
+            </param>
+            <param name="minWidth">
+                <int>50</int>
+            </param>
             <theme name="pathbox" merge="true">
-                <param name="border"><border>3</border></param>
+                <param name="border">
+                    <border>3</border>
+                </param>
             </theme>
         </theme>
         <theme name="button" ref="-defaults">
-            <param name=""><image>combobox.button.*</image></param>
-            <param name="minWidth"><int>18</int></param>
+            <param name="">
+                <image>combobox.button.*</image>
+            </param>
+            <param name="minWidth">
+                <int>18</int>
+            </param>
         </theme>
     </theme>
     <theme name="treecomboboxPopup" ref="-defaults">
-        <param name="background"><image>popup.background</image></param>
-        <param name="border"><border>2</border></param>
+        <param name="background">
+            <image>popup.background</image>
+        </param>
+        <param name="border">
+            <border>2</border>
+        </param>
         <theme name="scrollpane" ref="scrollpane">
             <theme name="treetable" ref="table">
-                <param name="background"><image>table.background</image></param>
-                <param name="border"><border>0</border></param>
-                <param name="columnHeaderHeight"><int>0</int></param>
+                <param name="background">
+                    <image>table.background</image>
+                </param>
+                <param name="border">
+                    <border>0</border>
+                </param>
+                <param name="columnHeaderHeight">
+                    <int>0</int>
+                </param>
             </theme>
         </theme>
-        <param name="minHeight"><int>300</int></param>
+        <param name="minHeight">
+            <int>300</int>
+        </param>
     </theme>
 
     <theme name="fileselector" ref="dialoglayout" allowWildcard="true">
         <theme name="label" ref="label">
-            <param name="font"><font>popupmenu-font</font></param>
+            <param name="font">
+                <font>popupmenu-font</font>
+            </param>
         </theme>
         <theme name="currentFolder" ref="treecombobox">
-            <param name="maxWidth"><int>32767</int></param>
+            <param name="maxWidth">
+                <int>32767</int>
+            </param>
         </theme>
         <theme name="buttonUp" ref="button">
-            <param name=""><image>fileselector.buttonOneLevelUp.*</image></param>
-            <param name="minWidth"><int>21</int></param>
+            <param name="">
+                <image>fileselector.buttonOneLevelUp.*</image>
+            </param>
+            <param name="minWidth">
+                <int>21</int>
+            </param>
         </theme>
         <theme name="buttonHome" ref="button">
-            <param name=""><image>fileselector.buttonHome.*</image></param>
-            <param name="minWidth"><int>21</int></param>
+            <param name="">
+                <image>fileselector.buttonHome.*</image>
+            </param>
+            <param name="minWidth">
+                <int>21</int>
+            </param>
         </theme>
         <theme name="buttonFoldersMRU" ref="button">
-            <param name=""><image>fileselector.buttonMRU.*</image></param>
-            <param name="minWidth"><int>20</int></param>
-            <param name="tooltip"><string>Shows recently used folders</string></param>
+            <param name="">
+                <image>fileselector.buttonMRU.*</image>
+            </param>
+            <param name="minWidth">
+                <int>20</int>
+            </param>
+            <param name="tooltip">
+                <string>Shows recently used folders</string>
+            </param>
         </theme>
         <theme name="buttonFilesMRU" ref="button">
-            <param name=""><image>fileselector.buttonMRU.*</image></param>
-            <param name="minWidth"><int>20</int></param>
-            <param name="tooltip"><string>Shows recently opened files</string></param>
+            <param name="">
+                <image>fileselector.buttonMRU.*</image>
+            </param>
+            <param name="minWidth">
+                <int>20</int>
+            </param>
+            <param name="tooltip">
+                <string>Shows recently opened files</string>
+            </param>
         </theme>
         <theme name="buttonOk" ref="button">
-            <param name="text"><string>OK</string></param>
-            <param name="minWidth"><int>80</int></param>
+            <param name="text">
+                <string>OK</string>
+            </param>
+            <param name="minWidth">
+                <int>80</int>
+            </param>
         </theme>
         <theme name="buttonCancel" ref="button">
-            <param name="text"><string>Cancel</string></param>
-            <param name="minWidth"><int>80</int></param>
+            <param name="text">
+                <string>Cancel</string>
+            </param>
+            <param name="minWidth">
+                <int>80</int>
+            </param>
         </theme>
         <theme name="buttonShowFolders" ref="button">
-            <param name=""><image>fileselector.buttonShowFolders.*</image></param>
-            <param name="tooltip"><string>Shows folders in the file table</string></param>
-            <param name="minWidth"><int>20</int></param>
-            <param name="minHeight"><int>20</int></param>
+            <param name="">
+                <image>fileselector.buttonShowFolders.*</image>
+            </param>
+            <param name="tooltip">
+                <string>Shows folders in the file table</string>
+            </param>
+            <param name="minWidth">
+                <int>20</int>
+            </param>
+            <param name="minHeight">
+                <int>20</int>
+            </param>
         </theme>
         <theme name="buttonShowHidden" ref="button">
-            <param name=""><image>fileselector.buttonShowHidden.*</image></param>
-            <param name="tooltip"><string>Shows hidden or system files</string></param>
-            <param name="minWidth"><int>20</int></param>
-            <param name="minHeight"><int>20</int></param>
+            <param name="">
+                <image>fileselector.buttonShowHidden.*</image>
+            </param>
+            <param name="tooltip">
+                <string>Shows hidden or system files</string>
+            </param>
+            <param name="minWidth">
+                <int>20</int>
+            </param>
+            <param name="minHeight">
+                <int>20</int>
+            </param>
         </theme>
         <theme name="buttonRefresh" ref="button">
-            <param name=""><image>fileselector.buttonRefresh.*</image></param>
-            <param name="tooltip"><string>Refreshes the file table</string></param>
-            <param name="minWidth"><int>20</int></param>
-            <param name="minHeight"><int>20</int></param>
+            <param name="">
+                <image>fileselector.buttonRefresh.*</image>
+            </param>
+            <param name="tooltip">
+                <string>Refreshes the file table</string>
+            </param>
+            <param name="minWidth">
+                <int>20</int>
+            </param>
+            <param name="minHeight">
+                <int>20</int>
+            </param>
         </theme>
         <theme name="scrollpane" ref="scrollpane">
-            <param name="border"><border>0</border></param>
+            <param name="border">
+                <border>0</border>
+            </param>
             <theme name="fileTable" ref="table">
-                <param name="columnWidths"><map>
-                    <param name="1"><int>70</int></param>
-                    <param name="2"><int>80</int></param>
-                    <param name="3"><int>140</int></param>
-                </map></param>
-                <param name="background"><image>table.background</image></param>
+                <param name="columnWidths">
+                    <map>
+                        <param name="1">
+                            <int>70</int>
+                        </param>
+                        <param name="2">
+                            <int>80</int>
+                        </param>
+                        <param name="3">
+                            <int>140</int>
+                        </param>
+                    </map>
+                </param>
+                <param name="background">
+                    <image>table.background</image>
+                </param>
             </theme>
         </theme>
         <theme name="fileFiltersBox" ref="combobox"/>
-        <param name="inputMap"><inputMapDef ref="-defaultInputMap">
-            <action name="goOneLevelUp">BACK</action>
-            <action name="acceptSelection">RETURN</action>
-        </inputMapDef></param>
-        <param name="namedGaps"><map>
-            <param name="buttonBarLeft"><gap/></param>
-            <param name="buttonBarSpacer"><gap>20</gap></param>
-            <param name="buttonBarRight"><gap>0</gap></param>
-        </map></param>
+        <param name="inputMap">
+            <inputMapDef ref="-defaultInputMap">
+                <action name="goOneLevelUp">BACK</action>
+                <action name="acceptSelection">RETURN</action>
+            </inputMapDef>
+        </param>
+        <param name="namedGaps">
+            <map>
+                <param name="buttonBarLeft">
+                    <gap/>
+                </param>
+                <param name="buttonBarSpacer">
+                    <gap>20</gap>
+                </param>
+                <param name="buttonBarRight">
+                    <gap>0</gap>
+                </param>
+            </map>
+        </param>
     </theme>
     <theme name="fileselector-folderMRUpopup" ref="-defaults">
-        <param name="background"><image>popup.background</image></param>
-        <param name="border"><border>2</border></param>
+        <param name="background">
+            <image>popup.background</image>
+        </param>
+        <param name="border">
+            <border>2</border>
+        </param>
         <theme name="listbox" ref="listbox">
             <theme name="display" ref="popupMenuButton"/>
-            <param name="background"><image>none</image></param>
-            <param name="border"><border>0</border></param>
+            <param name="background">
+                <image>none</image>
+            </param>
+            <param name="border">
+                <border>0</border>
+            </param>
         </theme>
     </theme>
     <theme name="fileselector-filesMRUpopup" ref="-defaults">
-        <param name="background"><image>popup.background</image></param>
-        <param name="border"><border>2</border></param>
+        <param name="background">
+            <image>popup.background</image>
+        </param>
+        <param name="border">
+            <border>2</border>
+        </param>
         <theme name="dialoglayout" ref="dialoglayout">
             <theme name="listbox" ref="listbox">
                 <theme name="display" ref="popupMenuButton"/>
-                <param name="background"><image>none</image></param>
-                <param name="border"><border>0</border></param>
+                <param name="background">
+                    <image>none</image>
+                </param>
+                <param name="border">
+                    <border>0</border>
+                </param>
             </theme>
             <theme name="buttonOk" ref="button">
-                <param name="text"><string>OK</string></param>
-                <param name="minWidth"><int>80</int></param>
+                <param name="text">
+                    <string>OK</string>
+                </param>
+                <param name="minWidth">
+                    <int>80</int>
+                </param>
             </theme>
             <theme name="buttonCancel" ref="button">
-                <param name="text"><string>Cancel</string></param>
-                <param name="minWidth"><int>80</int></param>
+                <param name="text">
+                    <string>Cancel</string>
+                </param>
+                <param name="minWidth">
+                    <int>80</int>
+                </param>
             </theme>
         </theme>
     </theme>
 
     <theme name="tooltipwindow" ref="-defaults">
-        <param name="background"><image>tooltipwindow.background</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="fadeInTime"><int>0</int></param>
+        <param name="background">
+            <image>tooltipwindow.background</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="fadeInTime">
+            <int>0</int>
+        </param>
         <theme name="label" ref="label"/>
     </theme>
     
     <theme name="playerselectpanel" ref="-defaults" allowWildcard="true">
-        <param name="slotSpacing"><int>5</int></param>
+        <param name="slotSpacing">
+            <int>5</int>
+        </param>
     </theme>
     
     <theme name="itemslot" ref="-defaults" allowWildcard="true">
-        <param name="background"><image>itemslot.background</image></param>
-        <param name="border"><border>background.border</border></param>
-        <param name="icons"><map>
-            <param name=""><image>icon.*</image></param>
-        </map></param>
+        <param name="background">
+            <image>itemslot.background</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="icons">
+            <map>
+                <param name="">
+                    <image>icon.*</image>
+                </param>
+            </map>
+        </param>
     </theme>
     
-        <theme name="black-panel" ref="-defaults">
-            <param name="background"><image>evilframe.background</image></param>
-	        <param name="border"><border>background.border</border></param>
-	        <param name="defaultGap"><dimension>5,5</dimension></param>
-	        <param name="smallGap"><dimension>8,8</dimension></param>
-	        <param name="mediumGap"><dimension>10,10</dimension></param>
-            <param name="largeGap"><dimension>15,15</dimension></param>
+    <theme name="black-panel" ref="-defaults">
+        <param name="background">
+            <image>evilframe.background</image>
+        </param>
+        <param name="border">
+            <border>background.border</border>
+        </param>
+        <param name="defaultGap">
+            <dimension>5,5</dimension>
+        </param>
+        <param name="smallGap">
+            <dimension>8,8</dimension>
+        </param>
+        <param name="mediumGap">
+            <dimension>10,10</dimension>
+        </param>
+        <param name="largeGap">
+            <dimension>15,15</dimension>
+        </param>
         
-	        <theme name="dialoglayout" ref="dialoglayout">
-		         <theme name="label" ref="label"/>
-		         <theme name="button" ref="button"/>
-		         <theme name="combobox" ref="combobox"/>
-		         <theme name="checkbox" ref="checkbox"/>
-		         <theme name="editfield" ref="editfield"/>
-		         <theme name="radiobutton" ref="radiobutton"/>
-		         <theme name="itemslot" ref="itemslot"/>
-		         <theme name="playerselectpanel" ref="playerselectpanel">
-		         	<theme name="itemslot" ref="itemslot"/>
-		         </theme>
-	    	</theme>	        
+        <theme name="dialoglayout" ref="dialoglayout">
+            <theme name="label" ref="label"/>
+            <theme name="button" ref="button"/>
+            <theme name="combobox" ref="combobox"/>
+            <theme name="checkbox" ref="checkbox"/>
+            <theme name="editfield" ref="editfield"/>
+            <theme name="radiobutton" ref="radiobutton"/>
+            <theme name="itemslot" ref="itemslot"/>
+            <theme name="playerselectpanel" ref="playerselectpanel">
+                <theme name="itemslot" ref="itemslot"/>
+            </theme>
+        </theme>	        
     </theme>
     
     
