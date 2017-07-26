@@ -11,12 +11,12 @@ import javax.sound.sampled.UnsupportedAudioFileException;
 
 public enum SoundEffect {
 
-    BUTTON("button.click.wav"),
-    DICE("dice.wav"),
-    CASH("cash.wav"),
-    SPIN("spin.wav"),
-    SLIDER("slider.wav"),
-    CLICK("click.wav");
+    BUTTON("assets/audio/button.click.wav"),
+    DICE("assets/audio/dice.wav"),
+    CASH("assets/audio/cash.wav"),
+    SPIN("assets/audio/spin.wav"),
+    SLIDER("assets/audio/slider.wav"),
+    CLICK("assets/audio/click.wav");
 
     private Clip clip;
 

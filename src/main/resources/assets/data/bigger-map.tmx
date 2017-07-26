@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="30" height="15" tilewidth="96" tileheight="96" nextobjectid="1">
+ <tileset firstgid="1" name="96x96-sprites" tilewidth="96" tileheight="96" tilecount="64" columns="8">
+  <image source="../images/96x96-sprites.png" trans="ff00ff" width="768" height="768"/>
+ </tileset>
+ <layer name="grass" width="30" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NlYGBgHcWjeBSP4lE8ikcoBgAvKQbQCAcAAA==
+  </data>
+ </layer>
+ <layer name="misc" width="30" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWDGQgDschAO2IUjIJRMAqGMQAA9feWLggHAAA=
+  </data>
+ </layer>
+ <layer name="tiles" width="30" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC+VUQQ7AIAjjBXLT//90WyJJ0xSYpx1GQnRSoGqn2Xfmt6/bxx7DY33u0QQmcFgHc9gH9F3W26Kxi2U1GYP8cB3PIqunYllfp++3nDlP5Sr+S6xjjid4J1zXV8WVqbpqXvV9znsKjOJf1cV51EM9Is6t3peqiZxY5/hvnJrS68kdKH7IKzPWCvfJ9sMazPRY6VdxZS4d7wpXcVP7RizeJb+bRjH0abUO+O38o12nN0TgCAcAAA==
+  </data>
+ </layer>
+ <layer name="text" width="30" height="15">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAC2NgGAWjYBSMglEwCkYuAABNKlmzCAcAAA==
+  </data>
+ </layer>
+</map>
