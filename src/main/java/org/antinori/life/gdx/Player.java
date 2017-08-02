@@ -119,7 +119,7 @@ public class Player {
     }
 
     public void setLocation(Location newLocation) {
-        
+
         if (this.location != null) {
             int dx = newLocation.getX() - this.location.getX();
             int dy = newLocation.getY() - this.location.getY();
@@ -175,7 +175,7 @@ public class Player {
     public String getStwCard(int idx) {
         try {
             if (computerPlayer) {
-                return "Hidden";
+                return "?";
             }
             return stwCards.get(idx).toShortestString();
         } catch (Exception e) {
@@ -307,13 +307,16 @@ public class Player {
     }
 
     public String toShortString() {
-        return String.format("%s $%s %s\n%s %s kids and %s",
-                name,
-                money,
-                (career == null ? "no job" : career.getDescription()),
-                getMarriedStatusText(),
-                child_count,
-                (house == null ? "no house" : house.getTitle()));
+        return name + "     " + getMarriedStatusText() + "     " + child_count+ " kids\n" +
+                "$" + money + "     " + (career == null ? "no job" : career.getDescription()) + "\n" +
+                "Salary: $" + salary + "     " + (house == null ? "no house" : house.getTitle()) + "\n" +
+                "LIFE: " + lifeTiles.size() + "     LTI: " + ltiCardValue + "     Loans: " + loans;
+    }
+    
+    public String displaySTW() {
+        return "S1: " + getStwCard(0) + " S4: " + getStwCard(3) + "\n" +
+                "S2: " + getStwCard(1) + " S5: " + getStwCard(4) + "\n" +
+                "S3: " + getStwCard(2) + " S6: " + getStwCard(5) ;
     }
 
     public boolean isMissTurn() {

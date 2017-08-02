@@ -36,6 +36,7 @@ public class Life extends Game {
 
     public static Skin skin;
     public static BitmapFont font;
+    public static BitmapFont fontSmall;
     public static Hud hud;
     
     public static final Dice dice = new Dice(1, 10);
@@ -58,6 +59,9 @@ public class Life extends Game {
 
         parameter.size = 18;
         font = generator.generateFont(parameter);
+        
+        parameter.size = 16;
+        fontSmall = generator.generateFont(parameter);
 
         parameter.size = 16;
         parameter.color = Color.BLACK;
