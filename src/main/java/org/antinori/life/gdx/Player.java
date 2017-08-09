@@ -308,8 +308,8 @@ public class Player {
 
     public String toShortString() {
         return name + "     " + getMarriedStatusText() + "     " + child_count+ " kids\n" +
-                "$" + money + "     " + (career == null ? "no job" : career.getDescription()) + "\n" +
-                "Salary: $" + salary + "     " + (house == null ? "no house" : house.getTitle()) + "\n" +
+                "$" + String.format("%,d", money) + "     " + (career == null ? "no job" : career.getDescription()) + "\n" +
+                "Salary: $" + String.format("%,d", salary) + "     " + (house == null ? "no house" : house.getTitle()) + "\n" +
                 "LIFE: " + lifeTiles.size() + "     LTI: " + ltiCardValue + "     Loans: " + loans;
     }
     

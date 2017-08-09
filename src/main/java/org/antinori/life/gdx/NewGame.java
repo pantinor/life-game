@@ -26,7 +26,7 @@ import static org.antinori.life.gdx.Life.TILE_DIM;
 
 public class NewGame {
 
-    private final GameScreen screen;
+    private final BaseScreen screen;
     public static String[] NUMBER_OPTIONS = {"No", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
 
     private List<Player> players = new ArrayList<>(6);
@@ -45,7 +45,7 @@ public class NewGame {
     private int currentPlayerIdx = 0;
     public boolean gameOver = false;
 
-    public NewGame(GameScreen screen) {
+    public NewGame(BaseScreen screen) {
 
         this.screen = screen;
 
@@ -292,8 +292,8 @@ public class NewGame {
                     return;
                 }
 
-                screen.setMapPixelCoords(player.getLocation().getX(), player.getLocation().getY());
-                move(player.getActor(), player.getLocation().getX(), player.getLocation().getY());
+                this.screen.setMapPixelCoords(player.getLocation().getX(), player.getLocation().getY());
+                this.screen.move(player.getActor(), player.getLocation().getX(), player.getLocation().getY());
 
                 int roll = spinWheel(player, true);
 
@@ -371,7 +371,7 @@ public class NewGame {
                     case MOVE_TO_MARRIED: {
                         player.setLocation(LifeMap.MARRIED_LOCATION);
                         screen.setMapPixelCoords(player.getLocation().getX(), player.getLocation().getY());
-                        move(player.getActor(), player.getLocation().getX(), player.getLocation().getY());
+                        this.screen.move(player.getActor(), player.getLocation().getX(), player.getLocation().getY());
                         break;
                     }
                     case MISS_TURN: {
@@ -494,7 +494,7 @@ public class NewGame {
                     }
                     break;
                 }
-                
+
                 case TAKE_FAMILY_PATH: {
                     String[] options = {"Take the Family Path", "Continue on the path of life"};
                     boolean choice = choosePath(player, player.getName() + ", which path will you take?", options);
@@ -502,7 +502,7 @@ public class NewGame {
                     next = (choice ? LifeMap.FAMILY_PATH_SELECTED : LifeMap.FAMILY_PATH_NOT_SELECTED);
                     break;
                 }
-                
+
                 case TAKE_RISKY_PATH: {
                     String[] options = {"Take the Risky Path", "Continue on the path of life"};
                     boolean choice = choosePath(player, player.getName() + ", which path will you take?", options);
@@ -511,12 +511,37 @@ public class NewGame {
                     break;
                 }
 
+                case RETIRE:
+                    //repay loans
+                    player.subtractMoney(player.getLoans() * 20000);
+                    player.setLoans(0);
+                    //sell house
+                    if (player.getHouse() != null) {
+                        int sale = player.getHouse().getSellFor();
+                        player.addMoney(sale);
+                    }
+                    player.setHouse(null);
+                    //set null career
+                    player.setCareer(null);
+                    //set retired boolean on player
+                    player.setRetired(true);
+                    // collect LTI each spin after this
+                    //still play STW cards
+                    //collect 10000 times children
+                    player.addMoney(10000 * player.getChildCount());
+                    //choose ME or CA
+                    String[] options = {"Millionaire Estates", "Countryside Acres"};
+                    boolean choice = choosePath(player, player.getName() + ", which retirement home will you choose?", options);
+                    log(player, player.getName() + " chose " + (choice ? options[0] : options[1]) + ".");
+                    player.setRetireeHome((choice ? options[0] : options[1]));
+                    return false;
+
             }
         }
 
         player.setLocation(next);
 
-        move(player.getActor(), player.getLocation().getX(), player.getLocation().getY());
+        this.screen.move(player.getActor(), player.getLocation().getX(), player.getLocation().getY());
 
         //check for ORANGE spaces or PAYDAY spaces
         switch (loc.getTile()
@@ -605,26 +630,18 @@ public class NewGame {
     }
 
     private void log(Player player, String text) {
-        Life.hud.add(player.getName() + ": " + text, player.getActor().getType().getColor());
+        if (Life.hud != null) {
+            Life.hud.add(player.getName() + ": " + text, player.getActor().getType().getColor());
+        } else {
+            System.out.println(player.getName() + ": " + text);
+        }
     }
 
     private void log(String text) {
-        Life.hud.add(text, Color.WHITE);
-    }
-
-    private void move(final org.antinori.life.gdx.Actor actor, int x, int y) {
-        final CountDownLatch latch = new CountDownLatch(1);
-        actor.addAction(sequence(moveTo(x * TILE_DIM,
-                screen.mapPixelHeight - (y + 1) * TILE_DIM, 0.5f), run(new Runnable() {
-                    @Override
-                    public void run() {
-                        actor.setDirection(-1);
-                        latch.countDown();
-                    }
-                })));
-        try {
-            latch.await();
-        } catch (Exception e) {
+        if (Life.hud != null) {
+            Life.hud.add(text, Color.WHITE);
+        } else {
+            System.out.println(text);
         }
     }
 
@@ -656,7 +673,7 @@ public class NewGame {
         int roll = seed;
 
         if (!player.isComputerPlayer()) {
-            SoundEffect.SPIN.play();
+            //SoundEffect.SPIN.play();
             //roll = this.world.spinWheel(seed);
         }
 
@@ -1043,7 +1060,7 @@ public class NewGame {
         }
     }
 
-    private boolean allPlayersRetired() {
+    public boolean allPlayersRetired() {
         boolean all_retired = true;
         for (Player player : players) {
             if (!player.isRetired()) {

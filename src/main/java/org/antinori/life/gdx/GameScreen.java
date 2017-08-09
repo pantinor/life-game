@@ -31,15 +31,19 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 import static org.antinori.life.gdx.Life.TILE_DIM;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.tiles.StaticTiledMapTile;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.moveTo;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.run;
+import static com.badlogic.gdx.scenes.scene2d.actions.Actions.sequence;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.CountDownLatch;
 import static org.antinori.life.gdx.Life.CLASSPTH_RSLVR;
+import static org.antinori.life.gdx.Life.TILE_DIM;
 import static org.antinori.life.gdx.Life.VIEWPORT_DIM_HEIGHT;
 import static org.antinori.life.gdx.Life.VIEWPORT_DIM_WIDTH;
 
-public class GameScreen implements Screen, InputProcessor {
+public class GameScreen implements BaseScreen {
 
     private float time = 0;
 
@@ -139,7 +143,8 @@ public class GameScreen implements Screen, InputProcessor {
         }
     }
 
-    final void setMapPixelCoords(float x, float y) {
+    @Override
+    public final void setMapPixelCoords(float x, float y) {
         newMapPixelCoords.x = x * TILE_DIM;
         newMapPixelCoords.y = mapPixelHeight - y * TILE_DIM;
     }
@@ -292,6 +297,23 @@ public class GameScreen implements Screen, InputProcessor {
         }
 
         return true;
+    }
+    
+    @Override
+    public void move(final org.antinori.life.gdx.Actor actor, int x, int y) {
+        final CountDownLatch latch = new CountDownLatch(1);
+        actor.addAction(sequence(moveTo(x * TILE_DIM, (TILE_DIM * 15) - (y + 1) * TILE_DIM, 0.5f),
+                run(new Runnable() {
+                    @Override
+                    public void run() {
+                        actor.setDirection(-1);
+                        latch.countDown();
+                    }
+                })));
+        try {
+            latch.await();
+        } catch (Exception e) {
+        }
     }
 
     @Override

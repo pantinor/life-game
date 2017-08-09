@@ -29,7 +29,7 @@ public class SpinToWinDialog extends Window {
     boolean cancelHide;
     com.badlogic.gdx.scenes.scene2d.Actor previousKeyboardFocus, previousScrollFocus;
     FocusListener focusListener;
-    GameScreen screen;
+    BaseScreen screen;
     NewGame game;
     CountDownLatch latch;
 
@@ -60,7 +60,7 @@ public class SpinToWinDialog extends Window {
     private final CheckBox useSTW4CheckBox;
     private final SelectBox wagerSelection;
 
-    public SpinToWinDialog(Player player, List<Integer> selection, NewGame game, GameScreen screen, CountDownLatch latch) {
+    public SpinToWinDialog(Player player, List<Integer> selection, NewGame game, BaseScreen screen, CountDownLatch latch) {
         super("", Life.skin.get("dialog", WindowStyle.class));
         setSkin(Life.skin);
         this.screen = screen;

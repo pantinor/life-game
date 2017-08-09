@@ -18,7 +18,6 @@ public enum ActorType {
     PLAYER7("assets/images/girl-walking.png", Color.MAGENTA),
     PLAYER8("assets/images/boy-walking.png", Color.BLUE);
 
-
     final private Animation east;
     final private Animation west;
     final private Animation north;
@@ -31,7 +30,13 @@ public enum ActorType {
 
     private ActorType(String sn, Color color) {
 
-        TextureRegion[][] people_sheet = TextureRegion.split(new Texture(Gdx.files.classpath(sn)), 96, 96);
+        TextureRegion[][] people_sheet = null;
+
+        try {
+            people_sheet = TextureRegion.split(new Texture(Gdx.files.classpath(sn)), 96, 96);
+        } catch (Exception e) {
+            people_sheet = new TextureRegion[8][8];
+        }
         east = new Animation(.1f, getTextureArray(people_sheet, 0, 0));
         north = new Animation(.1f, getTextureArray(people_sheet, 0, 1));
         northeast = new Animation(.1f, getTextureArray(people_sheet, 0, 2));
@@ -40,7 +45,7 @@ public enum ActorType {
         southeast = new Animation(.1f, getTextureArray(people_sheet, 0, 5));
         southwest = new Animation(.1f, getTextureArray(people_sheet, 0, 6));
         west = new Animation(.1f, getTextureArray(people_sheet, 0, 7));
-        
+
         this.color = color;
     }
 
@@ -76,7 +81,7 @@ public enum ActorType {
         return anim;
 
     }
-    
+
     public Color getColor() {
         return this.color;
     }

@@ -216,10 +216,8 @@ public class LifeMap {
         nodes[2][10].setTile(new Tile("Spin to WIN!", 0, Tile.Type.SPIN_TO_WIN, 1, Tile.TILE_YELLOW));
         nodes[1][10].setTile(new Tile("Pay Day", 0, Tile.Type.PAYDAY, 1, Tile.PAY_DAY_GREEN));
         nodes[1][11].setTile(new Tile("Sponsor public arts exhibit, pay $125,000", 125000, Tile.Type.PAY, 1, Tile.TILE_YELLOW));
-        nodes[1][10].setTile(new Tile("Host family reunion", 0, Tile.Type.LIFE, 1, Tile.TILE_YELLOW));
-        nodes[1][11].setTile(new Tile("You're a grandparent", 0, Tile.Type.LIFE, 1, Tile.TILE_YELLOW));
-        nodes[1][12].setTile(new Tile("Hire maid and butler service, pay $65,000", 65000, Tile.Type.PAY, 1, Tile.TILE_YELLOW));
-        nodes[2][12].setTile(new Tile("Climb Mt. Fuji in Japan", 0, Tile.Type.LIFE, 1, Tile.TILE_YELLOW));
+        nodes[1][12].setTile(new Tile("Host family reunion", 0, Tile.Type.LIFE, 1, Tile.TILE_YELLOW));
+        nodes[2][12].setTile(new Tile("You're a grandparent", 0, Tile.Type.LIFE, 1, Tile.TILE_YELLOW));
         nodes[3][12].setTile(new Tile("Pay Day", 10000, Tile.Type.PAYDAY, 1, Tile.PAY_DAY_GREEN));
         nodes[4][12].setTile(new Tile("Spin to WIN!", 0, Tile.Type.SPIN_TO_WIN, 1, Tile.TILE_YELLOW));
         nodes[5][12].setTile(new Tile("Visit the Great Wall of China", 0, Tile.Type.LIFE, 1, Tile.TILE_YELLOW));
@@ -394,8 +392,6 @@ public class LifeMap {
         nodes[2][9].getConnections().add(new DefaultConnection<>(nodes[2][9], nodes[2][10]));
         nodes[2][10].getConnections().add(new DefaultConnection<>(nodes[2][10], nodes[1][10]));
         nodes[1][10].getConnections().add(new DefaultConnection<>(nodes[1][10], nodes[1][11]));
-        nodes[1][11].getConnections().add(new DefaultConnection<>(nodes[1][11], nodes[1][10]));
-        nodes[1][10].getConnections().add(new DefaultConnection<>(nodes[1][10], nodes[1][11]));
         nodes[1][11].getConnections().add(new DefaultConnection<>(nodes[1][11], nodes[1][12]));
         nodes[1][12].getConnections().add(new DefaultConnection<>(nodes[1][12], nodes[2][12]));
         nodes[2][12].getConnections().add(new DefaultConnection<>(nodes[2][12], nodes[3][12]));
@@ -409,7 +405,8 @@ public class LifeMap {
         nodes[9][11].getConnections().add(new DefaultConnection<>(nodes[9][11], nodes[9][10]));
         nodes[9][10].getConnections().add(new DefaultConnection<>(nodes[9][10], nodes[8][10]));
         nodes[8][10].getConnections().add(new DefaultConnection<>(nodes[8][10], nodes[7][10]));
-
+        nodes[7][10].getConnections().add(new DefaultConnection<>(nodes[7][10], null));
+        
         return new LocationGraph(indexedNodes);
     }
 
