@@ -22,11 +22,6 @@
             <version>1.2.1</version>
         </dependency>
         <dependency>
-            <groupId>org.slick2d</groupId>
-            <artifactId>slick2d-core</artifactId>
-            <version>1.0.2</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-lang3</artifactId>
             <version>3.1</version>
@@ -39,35 +34,35 @@
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx</artifactId>
-            <version>1.9.6</version>
+            <version>1.10.0</version>
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-backend-lwjgl</artifactId>
-            <version>1.9.6</version>
+            <version>1.10.0</version>
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-platform</artifactId>
-            <version>1.9.6</version>
+            <version>1.10.0</version>
             <classifier>natives-desktop</classifier>
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-freetype</artifactId>
-            <version>1.9.6</version>
+            <version>1.10.0</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-ai</artifactId>
-            <version>1.8.1</version>
+            <version>1.8.2</version>
             <type>jar</type>
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
             <artifactId>gdx-freetype-platform</artifactId>
-            <version>1.9.6</version>
+            <version>1.10.0</version>
             <classifier>natives-desktop</classifier>
         </dependency>
         <dependency>
@@ -88,60 +83,14 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>2.3.2</version>
-                <configuration>
-                    <archive>
-                        <index>true</index>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                            <classpathPrefix>lib/</classpathPrefix>
-
-                            <mainClass>org.antinori.game.slick.LifeGame</mainClass>
-                        </manifest>
-
-                    </archive>
-                </configuration>
-            </plugin>
-
-
-
-
-            <plugin>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.3</version>
-                <configuration>
-
-                    <descriptors>
-                        <descriptor>src/assemble/assemble.xml</descriptor>
-                    </descriptors>
-
-                    <archive>
-                        <manifest>
-                            <mainClass>org.antinori.game.slick.LifeGame</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>single</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
 
 
         </plugins>
     </build>
 
     <properties>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>13</maven.compiler.source>
+        <maven.compiler.target>13</maven.compiler.target>
     </properties>
 
 

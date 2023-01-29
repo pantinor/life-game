@@ -342,7 +342,7 @@ public class GameScreen implements BaseScreen {
     }
 
     @Override
-    public boolean scrolled(int i) {
+    public boolean scrolled(float amountX, float amountY) {
         return false;
     }
 
